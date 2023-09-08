@@ -83,5 +83,17 @@ Route::prefix('panel/')->as('panel.')->middleware(['web', 'auth'])->group(
 );
 
 Route::get('testing', function () {
+    if (!Storage::disk('public')->exists('images/settings')) {
+        Storage::disk('public')->makeDirectory('images/settings');
+    }
 
+    if (Storage::disk('publicFolder')->exists('assets/videos/intro.mp4')) {
+        dd('exists');
+
+        if (!Storage::disk('public')->exists('images/settings/intro.mp4')) {
+            Storage::disk('public')->delete('images/settings/intro.mp4');
+        }
+        $file = Storage::disk('publicFolder')->get('assets/videos/intro.mp4');
+        Storage::disk('public')->put('images/settings/intro.mp4', $file);
+    }
 });
