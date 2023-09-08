@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Settings;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class SettingsSeeder extends Seeder
 {
@@ -13,17 +14,29 @@ class SettingsSeeder extends Seeder
      */
     public function run(): void
     {
-        Settings::create([
-            'email' => "email@gmial.com",
-            'mobile' => "",
-            'site_url' => "",
-            'video' => "",
-            'privacy_policy_en' => "email@gmial.com",
-            'privacy_policy_ar' => "email@gmial.com",
-            'terms_service_en' => "",
-            'terms_service_ar' => "",
-            'about_us_en' => "",
-            'about_us_ar' => "",
-        ]);
+
+        if (Storage::disk('publicFolder')->exists('assets/videos/intro.mp4')) {
+
+            if (Storage::disk('public')->exists('images/settings/intro.mp4')) {
+                Storage::disk('public')->delete('images/settings/intro.mp4');
+                $file = Storage::disk('publicFolder')->get('assets/videos/intro.mp4');
+                Storage::disk('public')->put('images/settings/intro.mp4', $file);
+            }
+        }
+
+        $data = [
+            'email' => "eng-amroakram@gmail.com",
+            'mobile' => "+966599916672",
+            'site_url' => "https://www.fitlifesa.co",
+            'video' => "intro.mp4",
+            'privacy_policy_en' => "https://www.fitlifesa.co",
+            'privacy_policy_ar' => "https://www.fitlifesa.co",
+            'terms_service_en' => "https://www.fitlifesa.co",
+            'terms_service_ar' => "https://www.fitlifesa.co",
+            'about_us_en' => "https://www.fitlifesa.co",
+            'about_us_ar' => "https://www.fitlifesa.co",
+        ];
+
+        Settings::create($data);
     }
 }

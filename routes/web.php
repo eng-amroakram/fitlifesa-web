@@ -7,6 +7,7 @@ use App\Http\Controllers\Panel\HomeController;
 use App\Http\Controllers\Panel\NutritionController;
 use App\Http\Controllers\Panel\SettingsController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,4 +83,5 @@ Route::prefix('panel/')->as('panel.')->middleware(['web', 'auth'])->group(
 );
 
 Route::get('testing', function () {
+
 });
