@@ -19,13 +19,13 @@ class SettingsSeeder extends Seeder
             Storage::disk('public')->makeDirectory('images/settings');
         }
 
-        if (Storage::disk('publicFolder')->exists('assets/videos/intro.mp4')) {
+        if (Storage::disk('publicFolder')->exists('assets/videos/Intro.mp4')) {
 
-            if (!Storage::disk('public')->exists('images/settings/intro.mp4')) {
-                Storage::disk('public')->delete('images/settings/intro.mp4');
+            if (!Storage::disk('public')->exists('images/settings/Intro.mp4')) {
+                Storage::disk('public')->delete('images/settings/Intro.mp4');
             }
-            $file = Storage::disk('publicFolder')->get('assets/videos/intro.mp4');
-            Storage::disk('public')->put('images/settings/intro.mp4', $file);
+            $file = Storage::disk('publicFolder')->get('assets/videos/Intro.mp4');
+            Storage::disk('public')->put('images/settings/Intro.mp4', $file);
         }
 
         $data = [
