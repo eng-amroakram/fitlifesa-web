@@ -7,6 +7,7 @@ use App\Models\Body;
 use App\Models\User;
 use App\Traits\APIHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -32,14 +33,12 @@ class AuthController extends Controller
     {
         $data = $this->request->validated;
 
-        dd($data);
-
-
-
-
-
-
         $user = User::with("body")->where("phone", $data['phone'])->first();
+
+        if (Hash::check($data['password'], $user->password)) {
+            return $this->response([], __("Password Is Not Correct"), 422);
+        }
+
         $body = $user->body;
         $user->is_body_info_completed = $body ? $body->check_user_body : false;
 
