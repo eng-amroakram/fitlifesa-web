@@ -17,6 +17,9 @@ class Locale
     {
         $lang = $request->query('lang', $request->header('Accept-Language'));
 
+        dd($lang);
+
+
         $dir = in_array($lang, ['ar']) ? 'rtl' : 'ltr';
 
         session()->put('dir', $dir);

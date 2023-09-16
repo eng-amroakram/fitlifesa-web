@@ -42,6 +42,7 @@ class AuthController extends Controller
                     __("Password Is Not Correct")
                 ]
             ];
+
             return $this->responseError("validation error", $errors, 422);
         }
 
