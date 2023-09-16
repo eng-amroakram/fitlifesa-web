@@ -36,7 +36,13 @@ class AuthController extends Controller
         $user = User::with("body")->where("phone", $data['phone'])->first();
 
         if (!($data['password'] ==  $user->password)) {
-            return $this->response([], __("Password Is Not Correct"), 422);
+
+            $errors =  [
+                "password" => [
+                    __("Password Is Not Correct")
+                ]
+            ];
+            return $this->responseError("validation error", $errors, 422);
         }
 
         $body = $user->body;
