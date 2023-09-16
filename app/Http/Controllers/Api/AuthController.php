@@ -32,6 +32,13 @@ class AuthController extends Controller
     {
         $data = $this->request->validated;
 
+        dd($data);
+
+
+
+
+
+
         $user = User::with("body")->where("phone", $data['phone'])->first();
         $body = $user->body;
         $user->is_body_info_completed = $body ? $body->check_user_body : false;
