@@ -35,7 +35,7 @@ class AuthController extends Controller
 
         $user = User::with("body")->where("phone", $data['phone'])->first();
 
-        if (Hash::check($data['password'], $user->password)) {
+        if (!($data['password'] ==  $user->password)) {
             return $this->response([], __("Password Is Not Correct"), 422);
         }
 
