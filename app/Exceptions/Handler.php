@@ -33,7 +33,7 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         $path = $request->path();
-        dd($path);
+        dd($path, strpos($path, 'api'));
 
         if (strpos($path, 'api') === 0) {
 
