@@ -36,7 +36,6 @@ class Handler extends ExceptionHandler
 
         if (strpos($path, 'api') === 0) {
 
-
             // return un authenticated user
             if ($exception instanceof \Illuminate\Auth\AuthenticationException) {
                 return response()->json([
