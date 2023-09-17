@@ -48,7 +48,14 @@ class Handler extends ExceptionHandler
                     'message' => 'Login to continue using the app'
                 ], 401);
             }
-            dd("56566");
+
+            if ($exception instanceof NotFoundHttpException) {
+                return response()->json([
+                    'status' => 404,
+                    'error' => 'Not Found',
+                    'message' => __('The requested resource was not found')
+                ], 404);
+            }
         }
 
         if ($exception instanceof ModelNotFoundException || $exception instanceof NotFoundHttpException) {

@@ -219,5 +219,7 @@
     "Meat": "لحم",
     "Fat": "دهون",
     "Password Is Not Correct": "كلمة المرور غير صحيحة",
-    "User fetched successfully": "تم استرجاع المستخدم بنجاح"
+    "User fetched successfully": "تم استرجاع المستخدم بنجاح",
+    "The requested resource was not found": "المورد المطلوب غير موجود",
+    "Not Found": "غير موجود"
 }
