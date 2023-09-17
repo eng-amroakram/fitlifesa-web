@@ -18,6 +18,7 @@ class APIValidationMiddleware
     public function handle(Request $request, Closure $next, $service_name): Response
     {
         $validator = $this->makeAPIValidation($request, $service_name);
+        return $this->responseError("validation error", $request->all(), 422);
 
         if ($validator->passes()) {
             $data['validated'] = $validator->validated();
