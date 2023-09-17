@@ -28,7 +28,7 @@ class ProfileController extends Controller
     {
         $data = $this->request->validated;
 
-        return $this->response($data['image']->file('image'), __("User updated successfully"), 200);
+        return $data['image']->getClientOriginalName();
 
         $user = User::find(auth()->id());
 
