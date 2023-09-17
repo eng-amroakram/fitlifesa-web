@@ -24,7 +24,9 @@ class APIValidationMiddleware
 
 
             $testing = [
-                "isFile" => $data['validated']['image']->file('image') ?? false,
+                "isFile" => $data['validated']['image'],
+                "check-image" => $request->hasFile('image'),
+                "file-image" => $request->file('image'),
             ];
 
             $request->merge($data);
