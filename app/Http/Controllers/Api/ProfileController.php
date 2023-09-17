@@ -28,7 +28,7 @@ class ProfileController extends Controller
     {
         $data = $this->request->validated;
 
-        return $data['image']->getClientOriginalName();
+        return $this->request->all();
 
         $user = User::find(auth()->id());
 
