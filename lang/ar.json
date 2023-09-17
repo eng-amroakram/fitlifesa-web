@@ -218,5 +218,6 @@
     "Vegetable": "خضار",
     "Meat": "لحم",
     "Fat": "دهون",
-    "Password Is Not Correct": "كلمة المرور غير صحيحة"
+    "Password Is Not Correct": "كلمة المرور غير صحيحة",
+    "User fetched successfully": "تم استرجاع المستخدم بنجاح"
 }

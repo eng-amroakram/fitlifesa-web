@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\Questionnaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,15 @@ Route::prefix('v2/')->as('v2.')->middleware(['api'])->group(function () {
             Route::post('questions', 'submitQuestions')->middleware(['validation:questions']);
             Route::post('create-macronutrients-plan', 'createMacronutrientsPlan')->middleware(['validation:create-macronutrients-plan']);
             Route::get('more-info-body-fat-percentage', 'moreInfoBodyFatPercentage')->middleware(['validation:more-info-body-fat-percentage']);
+        }
+    );
+
+    Route::controller(ProfileController::class)->prefix("profile/")->as("profile.")->middleware(['auth:sanctum'])->group(
+        function () {
+            Route::get("user", "getUser");
+            Route::post("update", "updateUser")->middleware(['validation:updateUser']);
+            Route::post("update-password", "updatePassword")->middleware(['validation:updatePassword']);
+            Route::post("update-profile-picture", "updateProfilePicture")->middleware(['validation:updateProfilePicture']);
         }
     );
 });
