@@ -28,7 +28,7 @@ class ProfileController extends Controller
     {
         $data = $this->request->validated;
 
-        return $data;
+        dd($data);
 
         $user = User::find(auth()->id());
 
