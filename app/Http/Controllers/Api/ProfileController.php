@@ -29,16 +29,11 @@ class ProfileController extends Controller
         $data = $this->request->validated;
 
         if ($this->request->hasFile('image')) {
-            $file = $this->request->file('image');
-            $file_path = $file->store("", 'public');
+            $data['image'] = $this->request->file('image');
+            // $file = $this->request->file('image');
+            // $file_path = $file->store("mobile/images/users", 'public');
+            // $data['image'] = $file_path ?? null;
         }
-
-
-        return $this->response([
-            "check-image" => $this->request->hasFile('image'),
-            "image" => $this->request->file('image'),
-            "file_path" => $file_path,
-        ], __("User updated successfully"), 200);
 
         $user = User::find(auth()->id());
 
