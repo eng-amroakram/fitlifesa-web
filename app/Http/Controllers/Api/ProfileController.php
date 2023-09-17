@@ -24,5 +24,10 @@ class ProfileController extends Controller
         return $this->response($user, __("User fetched successfully"), 200);
     }
 
-
+    public function update()
+    {
+        $user = auth()->user();
+        $data = $this->request->validated;
+        dd($data);
+    }
 }

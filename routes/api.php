@@ -49,7 +49,7 @@ Route::prefix('v2/')->as('v2.')->middleware(['api'])->group(function () {
     Route::controller(ProfileController::class)->prefix("profile/")->as("profile.")->middleware(['auth:sanctum'])->group(
         function () {
             Route::get("user", "user");
-            Route::post("update", "updateUser")->middleware(['validation:updateUser']);
+            Route::post("update", "update")->middleware(['validation:updateUser']);
             Route::post("update-password", "updatePassword")->middleware(['validation:updatePassword']);
             Route::post("update-profile-picture", "updateProfilePicture")->middleware(['validation:updateProfilePicture']);
         }

@@ -27,6 +27,15 @@ if (!function_exists('apiRules')) {
             ];
         }
 
+        if ($form == "updateUser") {
+            return [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+                'phone' => 'required|string|max:9|min:9unique:users,phone,' . $id,
+                'image' => 'nullable',
+            ];
+        }
+
         if ($form == "changePassword") {
             return [
                 'old_password' => 'required',
@@ -103,6 +112,24 @@ if (!function_exists('apiRulesMessages')) {
                 'old_password.required' => __('This field is required'),
                 'new_password.required' => __('This field is required'),
                 'new_password.min' => __('Password must be at least 8 characters'),
+            ];
+        }
+
+        if ($form == "updateUser") {
+            return [
+                'name.required' => __('This field is required'),
+                'name.string' => __('Name must be string'),
+                'name.max' => __('Name must be less than 255 characters'),
+                'email.required' => __('This field is required'),
+                'email.string' => __('Email must be string'),
+                'email.email' => __('Email must be valid email'),
+                'email.max' => __('Email must be less than 255 characters'),
+                'email.unique' => __('Email must be unique'),
+                'phone.required' => __('This field is required'),
+                'phone.string' => __('Phone must be string'),
+                'phone.max' => __('Phone must be 9 numbers'),
+                'phone.min' => __('Phone must be 9 numbers'),
+                'phone.unique' => __('Phone must be unique'),
             ];
         }
 
