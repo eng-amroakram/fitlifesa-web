@@ -52,6 +52,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    protected $file_path = 'mobile/images/users';
+
+
     public function scopeData($query)
     {
         return $query->select([
