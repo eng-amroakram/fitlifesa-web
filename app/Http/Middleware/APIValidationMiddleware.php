@@ -25,11 +25,11 @@ class APIValidationMiddleware
             $request->merge($data);
 
             $testing = [
-                "isFile" => $request->data->validated['image']->file('image') ?? false,
-                "name" => $request->data->validated['image']->file('image')->getClientOriginalName(),
-                "size" => $request->data->validated['image']->file('image')->getSize(),
-                "extension" => $request->data->validated['image']->file('image')->getClientOriginalExtension(),
-                "mime" => $request->data->validated['image']->file('image')->getMimeType(),
+                "isFile" => $request->validated['image']->file('image') ?? false,
+                "name" => $request->validated['image']->file('image')->getClientOriginalName(),
+                "size" => $request->validated['image']->file('image')->getSize(),
+                "extension" => $request->validated['image']->file('image')->getClientOriginalExtension(),
+                "mime" => $request->validated['image']->file('image')->getMimeType(),
             ];
 
             return $this->responseError("validation error", $testing, 422);
