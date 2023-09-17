@@ -28,8 +28,6 @@ class ProfileController extends Controller
     {
         $data = $this->request->validated;
 
-        return $data["name"];
-
         $user = User::find(auth()->id());
 
         $user->updateModel($data, $user->id);
