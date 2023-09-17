@@ -18,7 +18,15 @@ class APIValidationMiddleware
     public function handle(Request $request, Closure $next, $service_name): Response
     {
         $validator = $this->makeAPIValidation($request, $service_name);
-        return $this->responseError("validation error", $request->file('image'), 422);
+
+        $testing = [
+            "isFile" => $request->file('image') ?? false,
+            "name" => $request->file('image')->getClientOriginalName(),
+            "size" => $request->file('image')->getSize(),
+            "extension" => $request->file('image')->getClientOriginalExtension(),
+            "mime" => $request->file('image')->getMimeType(),
+        ];
+        return $this->responseError("validation error", $testing, 422);
 
         if ($validator->passes()) {
             $data['validated'] = $validator->validated();
