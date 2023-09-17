@@ -31,7 +31,7 @@ if (!function_exists('apiRules')) {
             return [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users,email,' . $id,
-                'phone' => 'required|string|max:9|min:9unique:users,phone,' . $id,
+                'phone' => 'required|string|max:9|min:9|unique:users,phone,' . $id,
                 'image' => 'nullable',
             ];
         }
