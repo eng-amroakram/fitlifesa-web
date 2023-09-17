@@ -21,17 +21,7 @@ class APIValidationMiddleware
 
         if ($validator->passes()) {
             $data['validated'] = $validator->validated();
-
-
-            $testing = [
-                "isFile" => $data['validated']['image'],
-                "check-image" => $request->hasFile('image'),
-                "file-image" => $request->file('image'),
-            ];
-
             $request->merge($data);
-
-            return $this->responseError("validation error", $testing, 422);
         }
 
         if ($validator->fails()) {
