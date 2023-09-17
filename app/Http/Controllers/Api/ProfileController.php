@@ -27,6 +27,9 @@ class ProfileController extends Controller
     public function update()
     {
         $data = $this->request->validated;
+
+        return $data;
+
         $user = User::find(auth()->id());
 
         $user->updateModel($data, $user->id);
