@@ -10,10 +10,7 @@ trait APIHelper
 {
     public function makeAPIValidation($request, $service_name)
     {
-        $user = auth()->user();
-
-        dd($user);
-        $validator = Validator::make($request->all(), apiRules($service_name), apiRulesMessages($service_name));
+        $validator = Validator::make($request->all(), apiRules($service_name, auth()->id()), apiRulesMessages($service_name));
         return $validator;
     }
 
@@ -26,7 +23,7 @@ trait APIHelper
         ], $status);
     }
 
-    public function responseError($message,$errors, $status = 400)
+    public function responseError($message, $errors, $status = 400)
     {
         return response()->json([
             "message" => $message,
