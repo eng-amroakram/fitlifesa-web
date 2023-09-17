@@ -19,17 +19,21 @@ class APIValidationMiddleware
     {
         $validator = $this->makeAPIValidation($request, $service_name);
 
-        $testing = [
-            "isFile" => $request->file('image') ?? false,
-            "name" => $request->file('image')->getClientOriginalName(),
-            "size" => $request->file('image')->getSize(),
-            "extension" => $request->file('image')->getClientOriginalExtension(),
-            "mime" => $request->file('image')->getMimeType(),
-        ];
-        return $this->responseError("validation error", $testing, 422);
+
 
         if ($validator->passes()) {
             $data['validated'] = $validator->validated();
+
+            $testing = [
+                "isFile" => $data['image']->file('image') ?? false,
+                "name" => $data['image']->file('image')->getClientOriginalName(),
+                "size" => $data['image']->file('image')->getSize(),
+                "extension" => $data['image']->file('image')->getClientOriginalExtension(),
+                "mime" => $data['image']->file('image')->getMimeType(),
+            ];
+
+            return $this->responseError("validation error", $testing, 422);
+
             $request->merge($data);
         }
 
