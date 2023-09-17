@@ -25,10 +25,6 @@ class APIValidationMiddleware
 
             $testing = [
                 "isFile" => $data['validated']['image']->file('image') ?? false,
-                "name" => $data['validated']['image']->file('image')->getClientOriginalName(),
-                "size" => $data['validated']['image']->file('image')->getSize(),
-                "extension" => $data['validated']['image']->file('image')->getClientOriginalExtension(),
-                "mime" => $data['validated']['image']->file('image')->getMimeType(),
             ];
 
             $request->merge($data);
