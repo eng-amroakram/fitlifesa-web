@@ -10,6 +10,9 @@ trait APIHelper
 {
     public function makeAPIValidation($request, $service_name)
     {
+        $user = auth()->user();
+
+        dd($user);
         $validator = Validator::make($request->all(), apiRules($service_name), apiRulesMessages($service_name));
         return $validator;
     }
