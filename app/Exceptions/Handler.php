@@ -33,19 +33,22 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         $path = $request->path();
-        dd($path, strpos($path, 'api'));
 
         if (strpos($path, 'api') === 0) {
+
 
             // return un authenticated user
 
             if ($exception instanceof \Illuminate\Auth\AuthenticationException) {
+                dd("sdfghj");
+
                 return response()->json([
                     'status' => 401,
                     'error' => 'Unauthenticated',
                     'message' => 'Login to continue using the app'
                 ], 401);
             }
+            dd("56566");
         }
 
         if ($exception instanceof ModelNotFoundException || $exception instanceof NotFoundHttpException) {
