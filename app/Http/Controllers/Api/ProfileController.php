@@ -28,7 +28,7 @@ class ProfileController extends Controller
     {
         $data = $this->request->validated;
 
-        return $this->request->all();
+        return $this->response($this->request->all(), __("User updated successfully"), 200);
 
         $user = User::find(auth()->id());
 
