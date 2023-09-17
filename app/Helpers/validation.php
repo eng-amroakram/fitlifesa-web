@@ -52,7 +52,7 @@ if (!function_exists('apiRules')) {
         if ($form == "questions") {
             return [
                 'gender' => "required|in:male,female",
-                'age' => 'required|integer|min:18|max:100',
+                'age' => 'required|min:5|max:100',
                 'weight' => 'required|integer|min:30|max:200',
                 'height' => 'required|integer|min:100|max:250',
                 'activity' => 'required|in:low,medium,high,off',
