@@ -38,10 +38,7 @@ class Handler extends ExceptionHandler
 
 
             // return un authenticated user
-
             if ($exception instanceof \Illuminate\Auth\AuthenticationException) {
-                dd("sdfghj");
-
                 return response()->json([
                     'status' => 401,
                     'error' => 'Unauthenticated',
