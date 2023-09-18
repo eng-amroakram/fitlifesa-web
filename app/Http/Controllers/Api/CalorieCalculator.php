@@ -270,9 +270,9 @@ class CalorieCalculator extends Controller
     {
         $protein_factor = $this->protein_factors[$this->goal . '-' . $this->activity . '-' . $this->level];
 
-        $this->protein_gram =  $protein_factor * $this->weight;
+        $this->protein_gram =  $protein_factor * (float)$this->weight;
         $this->protein_calories = $this->protein_gram * 4;
-        $this->protein_percent = ($this->protein_calories ?? 1 / $this->calories);
+        $this->protein_percent = ($this->protein_calories / $this->calories);
 
         if ($this->protein_percent < 0.10) {
             $this->protein_calories = 0.10 * $this->calories;
