@@ -214,6 +214,7 @@ class CalorieCalculator extends Controller
             $this->activity_factor,
             $this->weight,
             $this->BMIInRange(),
+            $this->BMIOutRange(),
             $this->IBM
         );
 
