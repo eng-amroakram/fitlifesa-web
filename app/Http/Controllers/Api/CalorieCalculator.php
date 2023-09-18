@@ -156,21 +156,21 @@ class CalorieCalculator extends Controller
         if ($this->BMIInRange()) {
 
             if ($this->gender == "male") {
-                $this->calories = (66.5 + (13.75 * $this->IBM) + (5.0031 * $this->height) - (6.755 * $this->age)) * $this->activity_factor;
+                $this->calories = (66.5 + (13.75 * $this->IBM) + (5.0031 * (float)$this->height) - (6.755 * $this->age)) * $this->activity_factor;
             }
 
             if ($this->gender == "female") {
-                $this->calories = (665 + (9.563 * $this->IBM) + (1.850 * $this->height) - (4.676 * $this->age)) * $this->activity_factor;
+                $this->calories = (665 + (9.563 * $this->IBM) + (1.850 * (float)$this->height) - (4.676 * $this->age)) * $this->activity_factor;
             }
         }
 
         if ($this->BMIInRange()) {
             if ($this->gender == "male") {
-                $this->calories = (66.5 + (13.75 * $this->weight) + (5.0031 * $this->height) - (6.755 * $this->age)) * $this->activity_factor;
+                $this->calories = (66.5 + (13.75 * (float)$this->weight) + (5.0031 * (float)$this->height) - (6.755 * $this->age)) * $this->activity_factor;
             }
 
             if ($this->gender == "female") {
-                $this->calories = (665 + (9.563 * $this->weight) + (1.850 * $this->height) - (4.676 * $this->age)) * $this->activity_factor;
+                $this->calories = (665 + (9.563 * (float)$this->weight) + (1.850 * (float)$this->height) - (4.676 * $this->age)) * $this->activity_factor;
             }
         }
 
