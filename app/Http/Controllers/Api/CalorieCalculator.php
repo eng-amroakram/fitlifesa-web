@@ -254,7 +254,7 @@ class CalorieCalculator extends Controller
     {
         $this->fats_calories = 0.30 * $this->calories;
         $this->fats_gram = $this->fats_calories / 9;
-        $this->fats_percent = ($this->fats_calories / $this->calories);
+        $this->fats_percent = ($this->fats_calories ?? 1 / $this->calories);
         return $this;
     }
 
