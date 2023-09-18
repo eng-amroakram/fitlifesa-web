@@ -94,39 +94,6 @@ class CalorieCalculator extends Controller
         $this->neck = $neck;
         $this->hip = $hip;
 
-        // dd(
-        //     "age",
-        //     $this->age,
-        //     "gender",
-        //     $this->gender,
-        //     "height",
-        //     $this->height,
-        //     "weight",
-        //     $this->weight,
-        //     "goal",
-        //     $this->goal,
-        //     "level",
-        //     $this->level,
-        //     "activity",
-        //     $this->activity,
-        //     "activity_factor",
-        //     $this->activity_factor,
-        //     "kg_per_week",
-        //     $this->kg_per_week,
-        //     "carbs_intake",
-        //     $this->carbs_intake,
-        //     "fat_intake",
-        //     $this->fat_intake,
-        //     "protein_intake",
-        //     $this->protein_intake,
-        //     "waist",
-        //     $this->waist,
-        //     "neck",
-        //     $this->neck,
-        //     "hip",
-        //     $this->hip,
-        // );
-
         $this->BMI = $this->calculateBMI();
         $this->BMIStatus();
         $this->IBM = $this->calculateIBM();
@@ -197,7 +164,7 @@ class CalorieCalculator extends Controller
             }
         }
 
-        if ($this->BMIInRange()) {
+        if ($this->BMIOutRange()) {
             if ($this->gender == "male") {
                 $this->calories = (66.5 + (13.75 * $this->weight) + (5.0031 * $this->height) - (6.755 * $this->age)) * $this->activity_factor;
             }
@@ -206,17 +173,6 @@ class CalorieCalculator extends Controller
                 $this->calories = (665 + (9.563 * $this->weight) + (1.850 * $this->height) - (4.676 * $this->age)) * $this->activity_factor;
             }
         }
-
-        dd(
-            $this->calories,
-            $this->height,
-            $this->age,
-            $this->activity_factor,
-            $this->weight,
-            $this->BMIInRange(),
-            $this->BMIOutRange(),
-            $this->IBM
-        );
 
         return $this;
     }
@@ -313,8 +269,6 @@ class CalorieCalculator extends Controller
     public function proteins()
     {
         $protein_factor = $this->protein_factors[$this->goal . '-' . $this->activity . '-' . $this->level];
-
-        dd($this->calories);
 
         $this->protein_gram =  $protein_factor * $this->weight;
         $this->protein_calories = $this->protein_gram * 4;
