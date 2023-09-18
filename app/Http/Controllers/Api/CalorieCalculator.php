@@ -86,7 +86,7 @@ class CalorieCalculator extends Controller
         $this->level = (string)$level;
         $this->activity = (string)$activity;
         $this->activity_factor = $activity_factors[$activity];
-        $this->kg_per_week = $kg_per_week;
+        $this->kg_per_week = (float)$kg_per_week;
         $this->carbs_intake = $carbs_intake;
         $this->fat_intake = $fat_intake;
         $this->protein_intake = $protein_intake;
