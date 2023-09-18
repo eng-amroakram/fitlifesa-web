@@ -262,7 +262,7 @@ class CalorieCalculator extends Controller
     {
         $this->carbs_calories = $this->calories - ($this->protein_calories + $this->fats_calories);
         $this->carbs_gram = $this->carbs_calories / 4;
-        $this->carbs_percent = ($this->carbs_calories / $this->calories);
+        $this->carbs_percent = ($this->carbs_calories ?? 1 / $this->calories);
         return $this;
     }
 
