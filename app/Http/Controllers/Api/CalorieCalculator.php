@@ -303,6 +303,8 @@ class CalorieCalculator extends Controller
     {
         $protein_factor = $this->protein_factors[$this->goal . '-' . $this->activity . '-' . $this->level];
 
+        dd($this->calories);
+
         $this->protein_gram =  $protein_factor * $this->weight;
         $this->protein_calories = $this->protein_gram * 4;
         $this->protein_percent = ($this->protein_calories / $this->calories);
