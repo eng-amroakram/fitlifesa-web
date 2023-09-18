@@ -29,8 +29,22 @@ class ProfileController extends Controller
         $data = $this->request->validated;
 
         if ($this->request->hasFile('image')) {
-            $data['image'] = $this->request->file('image');
-            // $file = $this->request->file('image');
+            $file = $this->request->file('image');
+
+            // check file size to 1MB
+
+            $file_size = $file->getSize();
+
+            if ($file_size > 1000000) {
+                return $this->response([
+                    'image' => [
+                        __("File size is too large")
+                    ],
+                    "size" => $file_size
+                ],  [], __("File size is too large"),  422);
+            }
+
+            $data['image'] = $file;
             // $file_path = $file->store("mobile/images/users", 'public');
             // $data['image'] = $file_path ?? null;
         }
