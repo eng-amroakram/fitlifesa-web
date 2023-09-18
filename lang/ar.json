@@ -221,5 +221,6 @@
     "Password Is Not Correct": "كلمة المرور غير صحيحة",
     "User fetched successfully": "تم استرجاع المستخدم بنجاح",
     "The requested resource was not found": "المورد المطلوب غير موجود",
-    "Not Found": "غير موجود"
+    "Not Found": "غير موجود",
+    "File size must be less than 1MB": "يجب أن يكون حجم الملف أقل من 1 ميجا بايت"
 }

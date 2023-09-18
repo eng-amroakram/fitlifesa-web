@@ -33,10 +33,12 @@ class ProfileController extends Controller
 
             $file_size = $file->getSize();
 
-            return $this->responseError(__("File size must be less than 1MB"), [
-                'image' => __("File size must be less than 1MB"),
-                'file_size' => $file_size
-            ], 422);
+            if ($file_size > 1000000) {
+                return $this->responseError(__("File size must be less than 1MB"), [
+                    'image' => __("File size must be less than 1MB"),
+                    'file_size' => $file_size
+                ], 422);
+            }
 
             $data['image'] = $file;
         }
