@@ -33,7 +33,7 @@ if (!function_exists('apiRules')) {
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users,email,' . $id,
                 'phone' => 'required|string|max:9|min:9|unique:users,phone,' . $id,
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|size:1024',
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
             ];
         }
 
@@ -133,7 +133,7 @@ if (!function_exists('apiRulesMessages')) {
                 'phone.unique' => __('Phone must be unique'),
                 'image.image' => __('Image must be image'),
                 'image.mimes' => __('Image must be one of the following types: :values', ['values' => 'jpeg,png,jpg,gif,svg']),
-                'image.size' => __('Image must be less than 1024 kilobytes'),
+                'image.max' => __('Image must be less than 1024 kilobytes'),
             ];
         }
 
