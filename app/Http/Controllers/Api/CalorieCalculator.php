@@ -254,7 +254,7 @@ class CalorieCalculator extends Controller
     {
         $this->fats_calories = 0.30 * $this->calories;
         $this->fats_gram = $this->fats_calories / 9;
-        $this->fats_percent = ($this->fats_calories ?? 1 / $this->calories);
+        $this->fats_percent = ($this->fats_calories / $this->calories);
         return $this;
     }
 
@@ -262,7 +262,7 @@ class CalorieCalculator extends Controller
     {
         $this->carbs_calories = $this->calories - ($this->protein_calories + $this->fats_calories);
         $this->carbs_gram = $this->carbs_calories / 4;
-        $this->carbs_percent = ($this->carbs_calories ?? 1 / $this->calories);
+        $this->carbs_percent = ($this->carbs_calories / $this->calories);
         return $this;
     }
 
@@ -272,7 +272,7 @@ class CalorieCalculator extends Controller
 
         $this->protein_gram =  $protein_factor * $this->weight;
         $this->protein_calories = $this->protein_gram * 4;
-        $this->protein_percent = ($this->protein_calories ?? 1 / $this->calories);
+        $this->protein_percent = ($this->protein_calories / $this->calories);
 
         if ($this->protein_percent < 0.10) {
             $this->protein_calories = 0.10 * $this->calories;
