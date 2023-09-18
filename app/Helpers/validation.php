@@ -52,9 +52,9 @@ if (!function_exists('apiRules')) {
         if ($form == "questions") {
             return [
                 'gender' => "required|in:male,female",
-                'age' => 'required|min:5|max:100',
-                'weight' => 'required|min:30|max:200',
-                'height' => 'required|min:100|max:250',
+                'age' => 'required',
+                'weight' => 'required',
+                'height' => 'required',
                 'activity' => 'required|in:low,medium,high,off',
                 'goal' => 'required|in:lose,maintain,gain',
                 'kg_per_week' => 'required|in:0.5,1',
