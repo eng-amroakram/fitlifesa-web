@@ -31,8 +31,6 @@ class ProfileController extends Controller
         if ($this->request->hasFile('image')) {
             $file = $this->request->file('image');
 
-            // check file size to 1MB
-
             $file_size = $file->getSize();
 
             return $this->responseError(__("File size must be less than 1MB"), [
@@ -41,8 +39,6 @@ class ProfileController extends Controller
             ], 422);
 
             $data['image'] = $file;
-            // $file_path = $file->store("mobile/images/users", 'public');
-            // $data['image'] = $file_path ?? null;
         }
 
         $user = User::find(auth()->id());
