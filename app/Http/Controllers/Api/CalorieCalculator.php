@@ -78,13 +78,13 @@ class CalorieCalculator extends Controller
         $this->protein_factors = config("data.api.protein-factors");
         $this->constant_calories = config("data.api.constant-calories");
 
-        $this->age = $age;
-        $this->gender = $gender;
-        $this->height = $height;
-        $this->weight = $weight;
-        $this->goal = $goal;
-        $this->level = $level;
-        $this->activity = $activity;
+        $this->age = (int)$age;
+        $this->gender = (string)$gender;
+        $this->height = (int)$height;
+        $this->weight = (int)$weight;
+        $this->goal = (string)$goal;
+        $this->level = (string)$level;
+        $this->activity = (string)$activity;
         $this->activity_factor = $activity_factors[$activity];
         $this->kg_per_week = $kg_per_week;
         $this->carbs_intake = $carbs_intake;
@@ -156,21 +156,21 @@ class CalorieCalculator extends Controller
         if ($this->BMIInRange()) {
 
             if ($this->gender == "male") {
-                $this->calories = (66.5 + (13.75 * $this->IBM) + (5.0031 * (float)$this->height) - (6.755 * $this->age)) * $this->activity_factor;
+                $this->calories = (66.5 + (13.75 * $this->IBM) + (5.0031 * $this->height) - (6.755 * $this->age)) * $this->activity_factor;
             }
 
             if ($this->gender == "female") {
-                $this->calories = (665 + (9.563 * $this->IBM) + (1.850 * (float)$this->height) - (4.676 * $this->age)) * $this->activity_factor;
+                $this->calories = (665 + (9.563 * $this->IBM) + (1.850 * $this->height) - (4.676 * $this->age)) * $this->activity_factor;
             }
         }
 
         if ($this->BMIInRange()) {
             if ($this->gender == "male") {
-                $this->calories = (66.5 + (13.75 * (float)$this->weight) + (5.0031 * (float)$this->height) - (6.755 * $this->age)) * $this->activity_factor;
+                $this->calories = (66.5 + (13.75 * $this->weight) + (5.0031 * $this->height) - (6.755 * $this->age)) * $this->activity_factor;
             }
 
             if ($this->gender == "female") {
-                $this->calories = (665 + (9.563 * (float)$this->weight) + (1.850 * (float)$this->height) - (4.676 * $this->age)) * $this->activity_factor;
+                $this->calories = (665 + (9.563 * $this->weight) + (1.850 * $this->height) - (4.676 * $this->age)) * $this->activity_factor;
             }
         }
 
@@ -270,7 +270,7 @@ class CalorieCalculator extends Controller
     {
         $protein_factor = $this->protein_factors[$this->goal . '-' . $this->activity . '-' . $this->level];
 
-        $this->protein_gram =  $protein_factor * (float)$this->weight;
+        $this->protein_gram =  $protein_factor * $this->weight;
         $this->protein_calories = $this->protein_gram * 4;
         $this->protein_percent = ($this->protein_calories / $this->calories);
 
