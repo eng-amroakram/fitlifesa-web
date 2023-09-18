@@ -207,6 +207,14 @@ class CalorieCalculator extends Controller
             }
         }
 
+        dd(
+            $this->calories,
+            $this->height,
+            $this->age,
+            $this->activity_factor,
+            $this->weight
+        );
+
         return $this;
     }
 
