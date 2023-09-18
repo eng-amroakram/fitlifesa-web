@@ -53,8 +53,8 @@ if (!function_exists('apiRules')) {
             return [
                 'gender' => "required|in:male,female",
                 'age' => 'required|min:5|max:100',
-                'weight' => 'required|integer|min:30|max:200',
-                'height' => 'required|integer|min:100|max:250',
+                'weight' => 'required|min:30|max:200',
+                'height' => 'required|min:100|max:250',
                 'activity' => 'required|in:low,medium,high,off',
                 'goal' => 'required|in:lose,maintain,gain',
                 'kg_per_week' => 'required|in:0.5,1',
@@ -146,13 +146,13 @@ if (!function_exists('apiRulesMessages')) {
         if ($form == "questions") {
             return [
                 "gender.required" => __("This field is required"),
-                "age" => __("This field is required"),
-                "weight" => __("This field is required"),
-                "height" => __("This field is required"),
-                "activity" => __("This field is required"),
-                "goal" => __("This field is required"),
-                "kg_per_week" => __("This field is required"),
-                "level" => __("This field is required"),
+                "age.required" => __("This field is required"),
+                "weight.required" => __("This field is required"),
+                "height.required" => __("This field is required"),
+                "activity.required" => __("This field is required"),
+                "goal.required" => __("This field is required"),
+                "kg_per_week.required" => __("This field is required"),
+                "level.required" => __("This field is required"),
             ];
         }
 
