@@ -35,14 +35,10 @@ class ProfileController extends Controller
 
             $file_size = $file->getSize();
 
-            if ($file_size > 1000000) {
-                return $this->response([
-                    'image' => [
-                        __("File size is too large")
-                    ],
-                    "size" => $file_size
-                ],  [], __("File size is too large"),  422);
-            }
+            return $this->responseError(__("File size must be less than 1MB"), [
+                'image' => __("File size must be less than 1MB"),
+                'file_size' => $file_size
+            ], 422);
 
             $data['image'] = $file;
             // $file_path = $file->store("mobile/images/users", 'public');
