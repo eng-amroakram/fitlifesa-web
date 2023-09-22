@@ -20,18 +20,10 @@ class NutritionController extends Controller
 
     public function foodExchanges($types = "")
     {
-        $food_types = [];
-
-        if ($types != "") {
-            $food_types[] = explode(',', $types);
-        }
-
         $filters = [
             'search' => $this->request->query('search', ''),
-            'type' => $food_types,
+            'type' => $types ? explode(',', $types) : null,
         ];
-
-        dd($filters);
 
         $food_exchanges = FoodExchange::filters($filters)->get();
         return $this->response($food_exchanges, __("Food exchanges retrieved successfully"), 200);
