@@ -63,7 +63,6 @@ Route::prefix('v2/')->as('v2.')->middleware(['api'])->group(function () {
         }
     );
 
-
     Route::controller(SettingsController::class)->prefix('settings/')->as('settings.')->middleware(['auth:sanctum'])->group(
         function () {
             Route::get('get-settings', 'getSettings');

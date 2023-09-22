@@ -13,7 +13,15 @@ class NutritionController extends Controller
 
     public function foodExchanges()
     {
-        $food_exchanges = FoodExchange::all()->random(10);
+        $food_exchanges = FoodExchange::data()->pluck([
+            'id',
+            'measurement_units',
+            'image',
+            'title',
+            'quantity',
+            'status',
+            'type',
+        ]);
 
         return $this->response($food_exchanges, __("Food exchanges retrieved successfully"), 200);
     }
