@@ -11,9 +11,21 @@ class NutritionController extends Controller
 {
     use APIHelper;
 
-    public function foodExchanges()
+    protected $request;
+
+    public function __construct(Request $request)
     {
-        $food_exchanges = FoodExchange::all();
+        $this->request = $request;
+    }
+
+    public function foodExchanges($type = "")
+    {
+        $filters = [
+            'search' => $this->request->query('search', ''),
+            'type' => $type,
+        ];
+
+        $food_exchanges = FoodExchange::filters($filters)->get();
         return $this->response($food_exchanges, __("Food exchanges retrieved successfully"), 200);
     }
 }
