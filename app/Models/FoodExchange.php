@@ -24,11 +24,14 @@ class FoodExchange extends Model
         'type'
     ];
 
+    protected $appends = ['title'];
+
+    protected $hidden = ['title_ar', 'title_en'];
+
     public function scopeData($query)
     {
         return $query->select(['id', 'measurement_units', 'image', 'title_ar', 'title_en', 'quantity', 'status', 'type', 'created_at', 'updated_at']);
     }
-
 
     public function scopeFilters(Builder $builder, array $filters = [])
     {

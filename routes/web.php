@@ -6,6 +6,9 @@ use App\Http\Controllers\Panel\ExercisesController;
 use App\Http\Controllers\Panel\HomeController;
 use App\Http\Controllers\Panel\NutritionController;
 use App\Http\Controllers\Panel\SettingsController;
+use App\Models\FoodExchange;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -84,5 +87,15 @@ Route::prefix('panel/')->as('panel.')->middleware(['web', 'auth'])->group(
 
 Route::get('testing', function () {
 
-    return view('test');
+    // $food_exchanges = DB::table('food_exchanges')
+    //     ->select([
+    //         'id',
+    //         DB::raw("CASE WHEN 'en' = 'ar' THEN title_ar ELSE title_en END as title")
+    //     ])
+    //     ->get();
+
+    $food_exchanges = User::all();
+
+
+    dd($food_exchanges);
 });
