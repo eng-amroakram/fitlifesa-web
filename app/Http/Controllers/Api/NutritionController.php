@@ -21,7 +21,7 @@ class NutritionController extends Controller
             'quantity',
             'status',
             'type',
-        ]);
+        ])->get();
 
         return $this->response($food_exchanges, __("Food exchanges retrieved successfully"), 200);
     }
