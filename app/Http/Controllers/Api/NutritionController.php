@@ -31,6 +31,8 @@ class NutritionController extends Controller
             'type' => $food_types,
         ];
 
+        dd($filters);
+
         $food_exchanges = FoodExchange::filters($filters)->get();
         return $this->response($food_exchanges, __("Food exchanges retrieved successfully"), 200);
     }
