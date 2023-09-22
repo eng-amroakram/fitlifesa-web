@@ -86,16 +86,4 @@ Route::prefix('panel/')->as('panel.')->middleware(['web', 'auth'])->group(
 );
 
 Route::get('testing', function () {
-
-    // $food_exchanges = DB::table('food_exchanges')
-    //     ->select([
-    //         'id',
-    //         DB::raw("CASE WHEN 'en' = 'ar' THEN title_ar ELSE title_en END as title")
-    //     ])
-    //     ->get();
-
-    $food_exchanges = User::all();
-
-
-    dd($food_exchanges);
 });
