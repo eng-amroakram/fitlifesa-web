@@ -63,7 +63,8 @@
         <div class="col-md-6">
             <h1 class="h6 mb-4 mt-4">{{ __('Privacy Policy (Arabic)') }}</h1>
             <div class="form-group">
-                <input id="privacy_policy_ar" dir="rtl" type="hidden" name="content" value="{{ $privacy_policy_ar }}">
+                <input id="privacy_policy_ar" dir="rtl" type="hidden" name="content"
+                    value="{{ $privacy_policy_ar }}">
                 <trix-editor input="privacy_policy_ar"></trix-editor>
             </div>
         </div>

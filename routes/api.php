@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\NutritionController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\Questionnaire;
 use App\Http\Controllers\Api\SettingsController;
@@ -55,6 +56,13 @@ Route::prefix('v2/')->as('v2.')->middleware(['api'])->group(function () {
             Route::post("update-profile-picture", "updateProfilePicture")->middleware(['validation:updateProfilePicture']);
         }
     );
+
+    Route::controller(NutritionController::class)->prefix("nutrition")->as("nutrition.")->middleware(['auth:sanctum'])->group(
+        function () {
+            Route::get("food-exchanges", "foodExchanges");
+        }
+    );
+
 
     Route::controller(SettingsController::class)->prefix('settings/')->as('settings.')->middleware(['auth:sanctum'])->group(
         function () {
