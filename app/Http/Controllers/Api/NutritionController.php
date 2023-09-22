@@ -18,11 +18,19 @@ class NutritionController extends Controller
         $this->request = $request;
     }
 
-    public function foodExchanges($type = "")
+    public function foodExchanges($types = "")
     {
+        $food_types = [];
+
+        if ($types != "") {
+            $food_types[] = explode(',', $types);
+        }
+
+        dd($food_types);
+
         $filters = [
             'search' => $this->request->query('search', ''),
-            'type' => $type,
+            'type' => $food_types,
         ];
 
         $food_exchanges = FoodExchange::filters($filters)->get();
