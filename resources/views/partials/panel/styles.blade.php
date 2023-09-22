@@ -34,5 +34,4 @@
 <link rel="stylesheet" href="{{ asset('assets/css/scroll.css') }}" />
 <link rel="stylesheet" href="{{ asset('mdb/css/custom.css') }}" />
 
-
 @livewireStyles

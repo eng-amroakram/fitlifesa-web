@@ -3,10 +3,10 @@
     <trix-editor input="{{ $trixId }}"></trix-editor>
 
     <script>
-        var trixEditor = document.getElementById("{{ $trixId }}")
+        var trixEditor = document.getElementById("{{ $trixId }}");
 
         addEventListener("trix-blur", function(event) {
             @this.set('value', trixEditor.getAttribute('value'))
-        })
+        });
     </script>
 </div>

@@ -1,9 +1,9 @@
-<div wire:ignore>
+<div wire:ignore style="margin: 50px; margin-top:0px">
 
     <div class="row">
 
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('Email') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('Email') }}</h1>
             <div class="form-group">
                 <div class="form-outline">
                     <input type="email" wire:model='email' placeholder="Email: example@exmaple.com" id="email"
@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('Mobile') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('Mobile') }}</h1>
             <div class="form-group">
                 <div class="form-outline">
                     <input type="tel" wire:model='mobile' placeholder="0599916672" id="mobile"
@@ -23,7 +23,7 @@
         </div>
 
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('Site Link') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('Site Link') }}</h1>
             <div class="form-group">
                 <div class="form-outline">
                     <input type="url" wire:model='site_url' placeholder="Site Url" id="site-link"
@@ -33,13 +33,14 @@
         </div>
 
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('Start Video') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('Start Video') }}</h1>
             <div class="form-group">
 
                 <div class="input-group">
                     <input type="file" wire:model='video' class="form-control" id="video" accept="video/mp4" />
                     <span class="input-group-text">
-                        <a href="{{ $video_table }}" data-toggle="lightbox" data-gallery="youtubevideos">
+                        <a href="{{ $video_table }}" target="_blank" data-toggle="lightbox"
+                            data-gallery="youtubevideos">
                             <img src="{{ asset('assets/images/video.png') }}" class="img-fluid" width="30"
                                 height="30" />
                         </a>
@@ -53,18 +54,20 @@
     <div class="row">
 
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('Privacy Policy (English)') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('Privacy Policy (English)') }}</h1>
             <div class="form-group">
-                <input id="privacy_policy_en" type="hidden" name="content" value="{{ $privacy_policy_en }}">
-                <trix-editor input="privacy_policy_en"></trix-editor>
+                <textarea id="privacy_policy_en" wire:model='privacy_policy_en' class="form-control">
+                    {{ $privacy_policy_en }}
+                </textarea>
             </div>
         </div>
 
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('Privacy Policy (Arabic)') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('Privacy Policy (Arabic)') }}</h1>
             <div class="form-group">
-                <input id="privacy_policy_ar" type="hidden" name="content" value="{{ $privacy_policy_ar }}">
-                <trix-editor input="privacy_policy_ar"></trix-editor>
+                <textarea id="privacy_policy_ar" wire:model='privacy_policy_ar' class="form-control">
+                    {{ $privacy_policy_ar }}
+                </textarea>
             </div>
         </div>
 
@@ -72,36 +75,40 @@
 
     <div class="row">
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('Terms Of Service (English)') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('Terms Of Service (English)') }}</h1>
             <div class="form-group">
-                <input id="terms_service_en" type="hidden" name="content" value="{{ $terms_service_en }}">
-                <trix-editor input="terms_service_en"></trix-editor>
+                <textarea id="terms_service_en" wire:model='terms_service_en' class="form-control">
+                    {{ $terms_service_en }}
+                </textarea>
             </div>
         </div>
 
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('Terms Of Service (Arabic)') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('Terms Of Service (Arabic)') }}</h1>
             <div class="form-group">
-                <input id="terms_service_ar" type="hidden" name="content" value="{{ $terms_service_ar }}">
-                <trix-editor input="terms_service_ar"></trix-editor>
+                <textarea id="terms_service_ar" wire:model='terms_service_ar' class="form-control">
+                    {{ $terms_service_ar }}
+                </textarea>
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('About Us (English)') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('About Us (English)') }}</h1>
             <div class="form-group">
-                <input id="about_us_en" type="hidden" name="content" value="{{ $about_us_en }}">
-                <trix-editor input="about_us_en"></trix-editor>
+                <textarea id="about_us_en" wire:model='about_us_en' class="form-control">
+                    {{ $about_us_en }}
+                </textarea>
             </div>
         </div>
 
         <div class="col-md-6">
-            <h1 class="h6 mb-4 mt-4">{{ __('About Us (Arabic)') }}</h1>
+            <h1 class="h4 mb-4 mt-4">{{ __('About Us (Arabic)') }}</h1>
             <div class="form-group">
-                <input id="about_us_ar" type="hidden" name="content" value="{{ $about_us_ar }}">
-                <trix-editor input="about_us_ar"></trix-editor>
+                <textarea id="about_us_ar" wire:model='about_us_ar' class="form-control">
+                    {{ $about_us_ar }}
+                </textarea>
             </div>
         </div>
     </div>
@@ -109,28 +116,51 @@
 
     <div class="row mb-5 mt-5">
         <div class="col-md-12">
-            <button type="submit" class="btn btn-primary w-100" wire:click='submit'>{{ __('Update') }}</button>
+            <button type="submit" class="btn btn-primary w-100" id="button_submit">{{ __('Update') }}</button>
         </div>
     </div>
 
 
 
-    <script>
-        var trixEditor_privacy_policy_en = document.getElementById("privacy_policy_en");
-        var trixEditor_privacy_policy_ar = document.getElementById("privacy_policy_ar");
-        var trixEditor_terms_service_en = document.getElementById("terms_service_en");
-        var trixEditor_terms_service_ar = document.getElementById("terms_service_ar");
-        var trixEditor_about_us_en = document.getElementById("about_us_en");
-        var trixEditor_about_us_ar = document.getElementById("about_us_ar");
 
-        addEventListener("trix-blur", function(event) {
-            @this.set('privacy_policy_en', trixEditor_privacy_policy_en.getAttribute('value'));
-            @this.set('privacy_policy_ar', trixEditor_privacy_policy_ar.getAttribute('value'));
-            @this.set('terms_service_en', trixEditor_terms_service_en.getAttribute('value'));
-            @this.set('terms_service_ar', trixEditor_terms_service_ar.getAttribute('value'));
-            @this.set('about_us_en', trixEditor_about_us_en.getAttribute('value'));
-            @this.set('about_us_ar', trixEditor_about_us_ar.getAttribute('value'));
+    <script>
+        $(document).ready(function() {
+            var $privacy_policy_en = $('#privacy_policy_en');
+            var $privacy_policy_ar = $('#privacy_policy_ar');
+            var $terms_service_en = $('#terms_service_en');
+            var $terms_service_ar = $('#terms_service_ar');
+            var $about_us_en = $('#about_us_en');
+            var $about_us_ar = $('#about_us_ar');
+
+            var $button_submit = $('#button_submit');
+
+            $button_submit.on('click', function() {
+                @this.set('privacy_policy_en', $privacy_policy_en.html());
+                @this.set('privacy_policy_ar', $privacy_policy_ar.html());
+                @this.set('terms_service_en', $terms_service_en.html());
+                @this.set('terms_service_ar', $terms_service_ar.html());
+                @this.set('about_us_en', $about_us_en.html());
+                @this.set('about_us_ar', $about_us_ar.html());
+                Livewire.emit('submit');
+            });
         });
+
+        // var trixEditor_privacy_policy_en = document.getElementById("privacy_policy_en");
+        // var trixEditor_privacy_policy_ar = document.getElementById("privacy_policy_ar");
+        // var trixEditor_terms_service_en = document.getElementById("terms_service_en");
+        // var trixEditor_terms_service_ar = document.getElementById("terms_service_ar");
+        // var trixEditor_about_us_en = document.getElementById("about_us_en");
+        // var trixEditor_about_us_ar = document.getElementById("about_us_ar");
+
+        // addEventListener("trix-blur", function(event) {
+        //     @this.set('privacy_policy_en', trixEditor_privacy_policy_en.getAttribute('value'));
+        //     @this.set('privacy_policy_ar', trixEditor_privacy_policy_ar.getAttribute('value'));
+        //     @this.set('terms_service_en', trixEditor_terms_service_en.getAttribute('value'));
+        //     @this.set('terms_service_ar', trixEditor_terms_service_ar.getAttribute('value'));
+        //     @this.set('about_us_en', trixEditor_about_us_en.getAttribute('value'));
+        //     @this.set('about_us_ar', trixEditor_about_us_ar.getAttribute('value'));
+        // });
     </script>
+
 
 </div>

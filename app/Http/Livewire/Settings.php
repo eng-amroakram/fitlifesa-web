@@ -9,7 +9,10 @@ use Livewire\WithFileUploads;
 
 class Settings extends Component
 {
-    protected $listeners = ["refresh" => '$refresh'];
+    protected $listeners = [
+        "refresh" => '$refresh',
+        "submit"
+    ];
 
     use LivewireAlert;
     use WithFileUploads;
@@ -64,6 +67,7 @@ class Settings extends Component
             'about_us_en' => 'nullable',
             'about_us_ar' => 'nullable',
         ]);
+
 
         $message = ModelsSettings::updateModel($data);
 
