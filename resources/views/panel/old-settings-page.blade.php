@@ -2,6 +2,7 @@
 @section('title', $title)
 @section('content')
     <section class="mb-4" style="height:650px;">
+
         <div class="card-header py-0">
             <nav class="navbar-expand-lg navbar-light bg-light mt-3"
                 style="--mdb-navbar-box-shadow: 0 4px 12px 0 rgb(189, 189, 189),0 2px 4px rgba(0,0,0,0.05);">
