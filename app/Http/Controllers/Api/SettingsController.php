@@ -21,8 +21,19 @@ class SettingsController extends Controller
     public function getSettings()
     {
         $settings = Settings::first();
+
+        $array = [
+            "email" => $settings->email,
+            "mobile" => $settings->mobile,
+            "site_url" => $settings->site_url,
+            "video" => $settings->video,
+            "privacy_policy" => $settings->privacy_policy,
+            "terms_service" => $settings->terms_service,
+            "about_us" => $settings->about_us,
+        ];
+
         if ($settings) {
-            return $this->response($settings->toArray(), __("Settings fetched successfully"), 200);
+            return $this->response($array, __("Settings fetched successfully"), 200);
         }
     }
 }
