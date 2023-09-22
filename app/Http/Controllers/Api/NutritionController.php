@@ -26,8 +26,6 @@ class NutritionController extends Controller
             $food_types[] = explode(',', $types);
         }
 
-        dd($food_types);
-
         $filters = [
             'search' => $this->request->query('search', ''),
             'type' => $food_types,
