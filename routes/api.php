@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v2/')->as('v2.')->group(function () {
+Route::prefix('v2/')->as('v2.')->middleware(['api'])->group(function () {
 
     Route::controller(AuthController::class)->prefix("auth/")->as("auth.")->group(
         function () {
@@ -57,7 +57,7 @@ Route::prefix('v2/')->as('v2.')->group(function () {
         }
     );
 
-    Route::controller(NutritionController::class)->prefix("nutrition")->as("nutrition.")->group(
+    Route::controller(NutritionController::class)->prefix("nutrition")->as("nutrition.")->middleware(['auth:sanctum'])->group(
         function () {
             Route::get("food-exchanges/{type?}", "foodExchanges");
         }
