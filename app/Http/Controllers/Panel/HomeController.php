@@ -12,4 +12,8 @@ class HomeController extends Controller
         return view('panel.home', ['title' => __('Dashboard')]);
     }
 
+    public function privacyPolicy()
+    {
+        return view('web.privacy');
+    }
 }

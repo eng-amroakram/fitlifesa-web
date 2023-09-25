@@ -33,12 +33,14 @@ Route::controller(Home::class)->prefix('auth/')->as('auth.')->middleware(['web']
     }
 );
 
+
 Route::prefix('panel/')->as('panel.')->middleware(['web', 'auth'])->group(
     function () {
 
         Route::controller(HomeController::class)->group(
             function () {
                 Route::get('', 'home')->name('home');
+                Route::get('privacy-policy', 'privacyPolicy')->name('privacy-policy');
             }
         );
 

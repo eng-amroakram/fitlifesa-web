@@ -1,0 +1,82 @@
+/* styles.css */
+
+/* Apply a background color to the entire page */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header */
+h1 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-color: #007acc;
+    margin: 0;
+}
+
+/* Style the paragraph text */
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444;
+    margin: 10px 0;
+}
+
+/* Style the links */
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+/* Change link color on hover */
+a:hover {
+    color: #005a9e;
+}
+
+/* Style the lists */
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Style headings */
+h2,
+h3,
+h4 {
+    color: #333;
+}
+
+/* Style the container of the definitions */
+ul li p strong {
+    color: #007acc;
+}
+
+/* Style the contact section */
+h2#contact {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-color: #007acc;
+    margin: 0;
+}
+
+/* Style the contact information */
+ul#contact-info {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* Style the contact links */
+ul#contact-info li a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+/* Change contact link color on hover */
+ul#contact-info li a:hover {
+    color: #005a9e;
+}
