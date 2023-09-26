@@ -18,6 +18,17 @@ class Tag extends Model
         'status',
     ];
 
+    protected $appends = [
+        'title',
+    ];
+
+    protected $hidden = [
+        'title_ar',
+        'title_en',
+        'created_at',
+        'updated_at'
+    ];
+
     public function scopeData($query)
     {
         return $query->select(['id', 'title_ar', 'title_en', 'status', 'created_at', 'updated_at']);
