@@ -45,7 +45,7 @@ class PostsService extends Controller
             __("Image"),
             __("Title"),
             __("Description"),
-            __("Type"),
+            __("Section"),
             __("Status"),
             __("Featured"),
             __("Actions")
@@ -64,7 +64,7 @@ class PostsService extends Controller
                 __("Active") => "active",
                 __("In Active") => "inactive",
             ],
-            "type" => [
+            "section" => [
                 __("Exercise") => "exercise",
                 __("Nutrition") => "nutrition",
             ],
@@ -99,7 +99,7 @@ class PostsService extends Controller
         $prefix_id = $type == "Updater" ? "_updater" : "_creator";
         $dir = app()->getLocale() == "ar" ? "rtl" : "ltr";
 
-        $types = [
+        $sections = [
             __('Exercise') => 'exercise',
             __('Nutrition') => 'nutrition'
         ];
@@ -115,7 +115,7 @@ class PostsService extends Controller
                 input("text", "title_ar", "title_ar_input_id$prefix_id", "fas fa-dumbbell", "rtl", "50", "form-control inputText$type", __("Arabic Title"), true, __("Arabic Title"), "text-danger reset-validation title_ar-validation"),
                 input("text", "title_en", "title_en_input_id$prefix_id", "fas fa-dumbbell", "ltr", "50", "form-control inputText$type", __("English Title"), true, __("English Title"), "text-danger reset-validation title_en-validation"),
                 select("select", "tag_id", "tag_id_select_id$prefix_id", "fas fa-toggle-on", "", "select inputSelect$type", __("Tag"), false, tags(true), "", true, __("Tag"), "text-danger reset-validation tag_id-validation"),
-                select("select", "type", "type_select_id$prefix_id", "fas fa-toggle-on", "", "select inputSelect$type", __("Type"), false, $types, "", true, __("Type"), "text-danger reset-validation type-validation"),
+                select("select", "section", "section_select_id$prefix_id", "fas fa-toggle-on", "", "select inputSelect$type", __("section"), false, $sections, "", true, __("Section"), "text-danger reset-validation section-validation"),
                 select("select", "featured", "featured_select_id$prefix_id", "fas fa-toggle-on", "", "select inputSelect$type", __("Featured"), false, $features, "", true, __("Featured"), "text-danger reset-validation featured-validation"),
                 input("image", "image", "image_input_id$prefix_id", "fas fa-cloud-arrow-up", "ltr", "50", "form-control inputText$type", __("Image"), true, __("Image"), "text-danger reset-validation image-validation", false, "image/*"),
                 input("textarea", "description_ar", "description_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Description"), true, __("Arabic Description"), "text-danger description_ar-validation fw-bold ms-5 reset-validation"),
@@ -129,7 +129,7 @@ class PostsService extends Controller
                 "title" => __("Post Info"),
                 "prev" => "",
                 "next" => "",
-                "type" => "text",
+                "section" => "text",
                 "status" => "show active",
                 "inputs" => [],
                 "checkboxes" => []
@@ -156,7 +156,7 @@ class PostsService extends Controller
             'title_en',
             'description_ar',
             'description_en',
-            'type',
+            'section',
             'featured',
         ];
     }

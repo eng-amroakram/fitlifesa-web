@@ -60,6 +60,7 @@ Route::prefix('v2/')->as('v2.')->middleware(['api'])->group(function () {
     Route::controller(NutritionController::class)->prefix("nutrition")->as("nutrition.")->middleware(['auth:sanctum'])->group(
         function () {
             Route::get("food-exchanges/{type?}", "foodExchanges");
+            Route::get("posts/{type?}", "posts");
         }
     );
 

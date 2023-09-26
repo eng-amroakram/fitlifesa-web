@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             MealSeeder::class,
             MealPlanSeeder::class,
             QuestionSeeder::class,
+            TagSeeder::class,
 
             // LevelSeeder::class,
             // ChallengeSeeder::class,

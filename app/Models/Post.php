@@ -21,14 +21,14 @@ class Post extends Model
         'title_en',
         'description_ar',
         'description_en',
-        'type',
+        'section',
         'status',
         'featured',
     ];
 
     public function scopeData($query)
     {
-        return $query->select(['id', 'tag_id', 'image', 'title_ar', 'title_en', 'description_ar', 'description_en', 'type', 'status', 'featured', 'created_at', 'updated_at']);
+        return $query->select(['id', 'tag_id', 'image', 'title_ar', 'title_en', 'description_ar', 'description_en', 'section', 'status', 'featured', 'created_at', 'updated_at']);
     }
 
     public function scopeFilters(Builder $builder, array $filters = [])
@@ -36,7 +36,7 @@ class Post extends Model
         $filters = array_merge([
             'search' => '',
             'status' => null,
-            'type' => null,
+            'section' => null,
             'featured' => null,
             'tag_id' => null,
         ], $filters);
@@ -50,8 +50,8 @@ class Post extends Model
             $query->whereIn('status', $filters['status']);
         });
 
-        $builder->when($filters['search'] == '' && $filters['type'] != null, function ($query) use ($filters) {
-            $query->whereIn('type', $filters['type']);
+        $builder->when($filters['search'] == '' && $filters['section'] != null, function ($query) use ($filters) {
+            $query->whereIn('section', $filters['section']);
         });
 
         $builder->when($filters['search'] == '' && $filters['featured'] != null, function ($query) use ($filters) {
@@ -73,9 +73,9 @@ class Post extends Model
         return $this->tag ? $this->tag->title : "";
     }
 
-    public function getTypeNameAttribute()
+    public function getSectionNameAttribute()
     {
-        return __($this->type);
+        return __($this->section);
     }
 
     public function getImageTableAttribute()
@@ -101,7 +101,7 @@ class Post extends Model
             "title_en" => ["required"],
             "description_ar" => ["required"],
             "description_en" => ["required"],
-            "type" => ["required"],
+            "section" => ["required"],
             // "status" => ["required"],
             "featured" => ["required"],
             // "image" => ["required", "image", "mimes:jpeg,png,jpg,gif,svg", "max:2048"],
@@ -116,7 +116,7 @@ class Post extends Model
             "title_en.required" => __("This field is required"),
             "description_ar.required" => __("This field is required"),
             "description_en.required" => __("This field is required"),
-            "type.required" => __("This field is required"),
+            "section.required" => __("This field is required"),
             // "status.required" => __("This field is required"),
             "featured.required" => __("This field is required"),
             // "image.required" => __("This field is required"),

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\FoodExchange;
+use App\Models\Post;
 use App\Traits\APIHelper;
 use Illuminate\Http\Request;
 
@@ -27,5 +28,16 @@ class NutritionController extends Controller
 
         $food_exchanges = FoodExchange::filters($filters)->get();
         return $this->response($food_exchanges, __("Food exchanges retrieved successfully"), 200);
+    }
+
+    public function posts($types = "")
+    {
+        $filters = [
+            'search' => $this->request->query('search', ''),
+            'type' => $types ? explode(',', $types) : null,
+        ];
+
+        $posts = Post::filters($filters)->get();
+        return $this->response($posts, __("Posts retrieved successfully"), 200);
     }
 }

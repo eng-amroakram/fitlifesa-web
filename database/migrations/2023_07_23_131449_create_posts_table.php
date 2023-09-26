@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title_en')->nullable()->unique();
             $table->longText('description_ar')->nullable();
             $table->longText('description_en')->nullable();
-            $table->enum('type', ['exercise', 'nutrition']);
+            $table->enum('section', ['exercise', 'nutrition']);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->enum('featured', ['yes', 'no']);
             $table->timestamps();

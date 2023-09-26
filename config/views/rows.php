@@ -114,7 +114,7 @@ return [
         "image_table" => 'image',
         "title" => 'property',
         "description" => 'property',
-        "type_name" => 'property',
+        "section_name" => 'property',
         "status" => 'status',
         "featured" => 'badge',
         "actions" => ["delete", "edit"],
