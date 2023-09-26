@@ -37,7 +37,10 @@ class NutritionController extends Controller
             'type' => $types ? explode(',', $types) : null,
         ];
 
-        $posts = Post::filters($filters)->get();
+        $posts = Post::filters($filters)->whereHas('tag', function ($query) {
+            $query->where('status', 'active');
+        })->get();
+
         return $this->response($posts, __("Posts retrieved successfully"), 200);
     }
 }
