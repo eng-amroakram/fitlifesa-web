@@ -44,6 +44,22 @@ class NutritionController extends Controller
             $query->where('status', 'active');
         })->get();
 
-        return $this->response($posts, __("Posts retrieved successfully"), 200);
+        $title = app()->getLocale() == "ar" ? "title_ar" : "title_en";
+
+        $tags_ids = Tag::all()->pluck($title, 'id')->mapWithKeys(function ($name, $id) {
+            return [$name => $id];
+        })->toArray();
+
+        $data = [
+            'posts' => $posts,
+            'tags' => $tags_ids,
+        ];
+
+
+
+
+
+
+        return $this->response($data, __("Posts retrieved successfully"), 200);
     }
 }
