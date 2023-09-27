@@ -30,11 +30,12 @@ class NutritionController extends Controller
         return $this->response($food_exchanges, __("Food exchanges retrieved successfully"), 200);
     }
 
-    public function posts($types = "")
+    public function posts($sections = "", $tag_id = null)
     {
         $filters = [
             'search' => $this->request->query('search', ''),
-            'type' => $types ? explode(',', $types) : null,
+            'section' => $sections ? explode(',', $sections) : null,
+            'tag_id' => $tag_id,
         ];
 
         $posts = Post::filters($filters)->whereHas('tag', function ($query) {
