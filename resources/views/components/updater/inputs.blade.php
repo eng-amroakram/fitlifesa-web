@@ -42,6 +42,30 @@
     </div>
 @endif
 
+
+@if ($input['type'] == 'text_custom_measurement_units')
+
+    <div class="{{ $classsize }}" wire:ignore>
+
+        @if ($input['lable'])
+            <label class="form-label select-label mb-1"><strong>{{ $input['lable'] }}</strong></label>
+        @endif
+
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="{{ $input['icon'] }}"></i>
+            </span>
+            <input type="number" id="{{ $input['id'] }}" wire:model.defer="{{ $input['name'] }}"
+                dir="{{ $input['dir'] }}" maxlength="{{ $input['maxlength'] }}" name="{{ $input['name'] }}"
+                class="{{ $input['class'] }}" placeholder="{{ $input['placeholder'] }}"
+                {{ $input['disabled'] ? 'disabled' : '' }} wire:ignore.self />
+        </div>
+        <small class="{{ $input['validation'] }}"></small>
+    </div>
+
+@endif
+
+
 @if ($input['type'] == 'select')
     <div class="{{ $classsize }}" wire:ignore>
 
@@ -128,7 +152,6 @@
     </div>
 @endif
 
-
 @if ($input['type'] == 'textarea')
     <div class="col-md-12">
 
@@ -163,7 +186,6 @@
         <small class="{{ $input['validation'] }}"></small>
     </div>
 @endif
-
 
 @if ($input['type'] == 'checkbox')
     <div class="col-12">

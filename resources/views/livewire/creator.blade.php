@@ -106,8 +106,6 @@
                     }
                 }
 
-                console.log("Title");
-
                 Livewire.emit('store', getContent());
             });
 

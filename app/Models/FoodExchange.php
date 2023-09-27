@@ -19,7 +19,7 @@ class FoodExchange extends Model
         'image',
         'title_ar',
         'title_en',
-        'quantity',
+        // 'quantity',
         'status',
         'type'
     ];
@@ -30,7 +30,20 @@ class FoodExchange extends Model
 
     public function scopeData($query)
     {
-        return $query->select(['id', 'measurement_units', 'image', 'title_ar', 'title_en', 'quantity', 'status', 'type', 'created_at', 'updated_at']);
+        return $query->select(
+            [
+                'id',
+                'measurement_units',
+                'image',
+                'title_ar',
+                'title_en',
+                // 'quantity',
+                'status',
+                'type',
+                'created_at',
+                'updated_at'
+            ]
+        );
     }
 
     public function scopeFilters(Builder $builder, array $filters = [])
@@ -57,7 +70,7 @@ class FoodExchange extends Model
 
     public function getMeasurementUnitsAttribute($value)
     {
-        return json_decode($value);
+        return json_decode($value, true);
     }
 
     public function setMeasurementUnitsAttribute($value)
@@ -85,7 +98,7 @@ class FoodExchange extends Model
         return [
             "title_ar" => ["required"],
             "title_en" => ["required"],
-            "quantity" => ["required"],
+            // "quantity" => ["required"],
             "image" => ["required"],
             'type' => 'required|in:starch,fruit,dairy,vegetable,meat,fat',
         ];
@@ -97,7 +110,7 @@ class FoodExchange extends Model
             "title_ar.required" => __("This field is required"),
             "title_en.required" => __("This field is required"),
             "image.required" => __("This field is required"),
-            "quantity.required" => __("This field is required"),
+            // "quantity.required" => __("This field is required"),
             "type.required" => __("This field is required"),
         ];
     }
@@ -108,6 +121,24 @@ class FoodExchange extends Model
         $data['status'] = 'active';
         $data['image'] = $builder->storeFile($data['image']);
         $this->deleteLivewireTempImage();
+
+        $inputs_units_names = [];
+        $measurement_units = [];
+
+        foreach (measurement_units(true) as $name => $id) {
+            array_push($inputs_units_names, str_replace(' ', '_', strtolower($name)));
+        }
+
+        foreach ($data as $key => $value) {
+            if (in_array($key, $inputs_units_names)) {
+                if ($value) {
+                    $measurement_units[ucwords(str_replace('_', ' ', $key))] = $value ?? 0;
+                }
+                unset($data[$key]);
+            }
+        }
+
+        $data['measurement_units'] = $measurement_units;
 
         $model = $builder->create($data);
 
@@ -122,6 +153,24 @@ class FoodExchange extends Model
     {
         $image = $data['image'];
         $model = $builder->find($id);
+
+        $inputs_units_names = [];
+        $measurement_units = [];
+
+        foreach (measurement_units(true) as $name => $id) {
+            array_push($inputs_units_names, str_replace(' ', '_', strtolower($name)));
+        }
+
+        foreach ($data as $key => $value) {
+            if (in_array($key, $inputs_units_names)) {
+                if ($value) {
+                    $measurement_units[ucwords(str_replace('_', ' ', $key))] = $value ?? 0;
+                }
+                unset($data[$key]);
+            }
+        }
+
+        $data['measurement_units'] = $measurement_units;
 
         if (gettype($image) == "object") {
             $builder->deleteImage($id);

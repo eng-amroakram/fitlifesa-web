@@ -21,7 +21,7 @@ class FoodExchangeSeeder extends Seeder
                 'image' => '',
                 'title_ar' => __($fruit),
                 'title_en' => $fruit,
-                'quantity' => $quantity,
+                // 'quantity' => $quantity,
                 'status' => 'active',
                 'type' => 'fruit'
             ]);
@@ -35,7 +35,7 @@ class FoodExchangeSeeder extends Seeder
                 'image' => '',
                 'title_ar' => __($vegetable),
                 'title_en' => $vegetable,
-                'quantity' => $quantity,
+                // 'quantity' => $quantity,
                 'status' => 'active',
                 'type' => 'vegetable'
             ]);

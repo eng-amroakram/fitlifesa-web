@@ -58,8 +58,18 @@ class Updater extends Component
         $service = $this->setService($this->service);
         $model =   $service->model($id);
 
+        $inputs_units_names = [];
+
+        if ($this->service == "FoodExchangesService") {
+            foreach ($model->measurement_units as $name => $id) {
+                $model->{str_replace(' ', '_', strtolower($name))} = $model->measurement_units[$name];
+            }
+        }
+
         foreach ($this->fillable as $field) {
             $this->{$field} = $model->{$field};
+            if (in_array($field, $inputs_units_names)) {
+            }
         }
 
         foreach ($this->contents as $content) {

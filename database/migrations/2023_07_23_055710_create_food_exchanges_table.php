@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('title_ar')->nullable();
             $table->string('title_en')->nullable();
-            $table->double('quantity')->nullable();
+            // $table->double('quantity')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->enum('type', ['starch', 'fruit', 'dairy', 'vegetable', 'meat', 'fat'])->default('starch');
             $table->timestamps();
