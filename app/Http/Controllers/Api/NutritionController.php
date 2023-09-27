@@ -46,13 +46,11 @@ class NutritionController extends Controller
 
         $title = app()->getLocale() == "ar" ? "title_ar" : "title_en";
 
-        $tags_ids = Tag::all()->pluck($title, 'id')->mapWithKeys(function ($name, $id) {
-            return [$name => $id];
-        })->toArray();
+        $tags = Tag::all();
 
         $data = [
             'posts' => $posts,
-            'tags' => $tags_ids,
+            'tags' => $tags,
         ];
 
 
