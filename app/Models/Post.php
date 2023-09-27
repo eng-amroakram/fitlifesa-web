@@ -32,6 +32,7 @@ class Post extends Model
         'description',
         'tag_name',
         'section_name',
+        'tad_ids',
     ];
 
     protected $hidden = [
@@ -85,6 +86,15 @@ class Post extends Model
     public function tag()
     {
         return $this->belongsTo(Tag::class);
+    }
+
+    public function getTadIdsAttribute()
+    {
+        $title = app()->getLocale() == "ar" ? "title_ar" : "title_en";
+
+        return Tag::all()->pluck($title, 'id')->mapWithKeys(function ($name, $id) {
+            return [$name => $id];
+        })->toArray();
     }
 
     public function getTagNameAttribute()
