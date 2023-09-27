@@ -156,4 +156,15 @@
 
         });
     </script>
+
+
+    <script>
+        var trixEditor_description_ar = document.getElementById("description_ar");
+        var trixEditor_description_en = document.getElementById("description_en");
+
+        addEventListener("trix-blur", function(event) {
+            @this.set('description_ar', trixEditor_description_ar.getAttribute('value'));
+            @this.set('description_en', trixEditor_description_en.getAttribute('value'));
+        });
+    </script>
 @endpush

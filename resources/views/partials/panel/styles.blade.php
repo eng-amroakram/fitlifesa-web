@@ -34,4 +34,6 @@
 <link rel="stylesheet" href="{{ asset('assets/css/scroll.css') }}" />
 <link rel="stylesheet" href="{{ asset('mdb/css/custom.css') }}" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
+
 @livewireStyles

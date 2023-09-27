@@ -116,7 +116,6 @@
     </div>
 
 
-
     <script>
         var trixEditor_privacy_policy_en = document.getElementById("privacy_policy_en");
         var trixEditor_privacy_policy_ar = document.getElementById("privacy_policy_ar");

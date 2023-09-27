@@ -179,12 +179,30 @@
 
             });
 
-
             Livewire.on('setDataFields', function(data) {
                 // $(".reset-validation").text(" ");
                 $data_updater = JSON.parse(data);
             });
 
+            Livewire.on('setDescriptionAr', function(id, data) {
+                var trixEditor_description_ar = $("#" + id);
+                trixEditor_description_ar.attr('value', data);
+            });
+
+            Livewire.on('setDescriptionEn', function(data) {
+                var trixEditor_description_en = document.getElementById("description_en");
+                @this.set('description_en', trixEditor_description_en.getAttribute('value'));
+            });
+        });
+    </script>
+
+    <script>
+        var trixEditor_description_ar = document.getElementById("description_ar");
+        var trixEditor_description_en = document.getElementById("description_en");
+
+        addEventListener("trix-blur", function(event) {
+            @this.set('description_ar', trixEditor_description_ar.getAttribute('value'));
+            @this.set('description_en', trixEditor_description_en.getAttribute('value'));
         });
     </script>
 @endpush

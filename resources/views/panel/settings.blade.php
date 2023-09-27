@@ -19,11 +19,7 @@
             </nav>
         </div>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
-
         @livewire('settings')
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
 
     </section>
 @endsection

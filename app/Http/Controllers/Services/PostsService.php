@@ -118,8 +118,8 @@ class PostsService extends Controller
                 select("select", "section", "section_select_id$prefix_id", "fas fa-toggle-on", "", "select inputSelect$type", __("section"), false, $sections, "", true, __("Section"), "text-danger reset-validation section-validation"),
                 select("select", "featured", "featured_select_id$prefix_id", "fas fa-toggle-on", "", "select inputSelect$type", __("Featured"), false, $features, "", true, __("Featured"), "text-danger reset-validation featured-validation"),
                 input("image", "image", "image_input_id$prefix_id", "fas fa-cloud-arrow-up", "ltr", "50", "form-control inputText$type", __("Image"), true, __("Image"), "text-danger reset-validation image-validation", false, "image/*"),
-                input("textarea", "description_ar", "description_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Description"), true, __("Arabic Description"), "text-danger description_ar-validation fw-bold ms-5 reset-validation"),
-                input("textarea", "description_en", "description_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Description"), true, __("English Description"), "text-danger description_en-validation fw-bold ms-5 reset-validation"),
+                input("editor", "description_ar", "description_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Description"), true, __("Arabic Description"), "text-danger description_ar-validation fw-bold ms-5 reset-validation"),
+                input("editor", "description_en", "description_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Description"), true, __("English Description"), "text-danger description_en-validation fw-bold ms-5 reset-validation"),
             ],
         ];
 

@@ -64,6 +64,11 @@ class Updater extends Component
 
         foreach ($this->contents as $content) {
             foreach ($content['inputs'] as $input) {
+
+                if ($input['name'] == 'description_ar') {
+                    $this->emit('setDescriptionAr', $input['name'], $model->description_ar);
+                }
+
                 if ($input['type'] == 'select') {
 
                     if ($input['name'] == 'meals') {

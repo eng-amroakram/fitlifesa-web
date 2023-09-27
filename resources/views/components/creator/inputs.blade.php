@@ -151,6 +151,20 @@
     </div>
 @endif
 
+@if ($input['type'] == 'editor')
+    <div class="col-md-12">
+        @if ($input['lable'])
+            <label class="form-label select-label mb-1"><strong>{{ $input['lable'] }}</strong></label>
+        @endif
+        <div class="col-md-12 form-group">
+            <input id="{{ $input['name'] }}"  dir="{{ $input['dir'] }}" type="hidden" name="content">
+            <trix-editor input="{{ $input['name'] }}"></trix-editor>
+        </div>
+        <small class="{{ $input['validation'] }}"></small>
+    </div>
+@endif
+
+
 @if ($input['type'] == 'checkbox')
     <div class="col-12">
         <div class="switch">
