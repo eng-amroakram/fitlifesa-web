@@ -36,7 +36,7 @@ class NutritionController extends Controller
             'search' => $this->request->query('search', ''),
             'section' => $sections ? explode(',', $sections) : null,
             'tag_id' => $tag_ids ? explode(',', $tag_ids) : null,
-            'status' => 'active',
+            'status' => ['active'],
         ];
 
         $posts = Post::filters($filters)->whereHas('tag', function ($query) {
