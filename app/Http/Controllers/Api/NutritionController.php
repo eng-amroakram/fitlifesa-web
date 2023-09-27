@@ -51,11 +51,17 @@ class NutritionController extends Controller
             'tags' => $tags,
         ];
 
-
-
-
-
-
         return $this->response($data, __("Posts retrieved successfully"), 200);
+    }
+
+    public function post($id)
+    {
+        $post = Post::find($id);
+
+        if (!$post) {
+            return $this->response([], __("Post not found"), 404);
+        }
+
+        return $this->response($post, __("Post retrieved successfully"), 200);
     }
 }

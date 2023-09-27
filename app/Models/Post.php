@@ -43,8 +43,6 @@ class Post extends Model
         'updated_at'
     ];
 
-
-
     public function scopeData($query)
     {
         return $query->select(['id', 'tag_id', 'image', 'title_ar', 'title_en', 'description_ar', 'description_en', 'section', 'status', 'featured', 'created_at', 'updated_at']);
