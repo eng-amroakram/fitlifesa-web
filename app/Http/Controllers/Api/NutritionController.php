@@ -38,8 +38,6 @@ class NutritionController extends Controller
             'tag_id' => $tag_ids ? explode(',', $tag_ids) : null,
         ];
 
-        dd($filters);
-
         $posts = Post::filters($filters)->whereHas('tag', function ($query) {
             $query->where('status', 'active');
         })->get();
