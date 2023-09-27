@@ -2,38 +2,159 @@
 
 return [
     "fruits" => [
-        "Apple" => 3,
-        "Banana" => 2,
-        "Orange" => 4,
-        "Strawberry" => 10,
-        "Grapes" => 0.5,
-        "Watermelon" => 1,
-        "Pineapple" => 1,
-        "Kiwi" => 5,
-        "Mango" => 2,
-        "Pear" => 3,
-        "Blueberry" => 0.25,
-        "Raspberry" => 0.3,
-        "Blackberry" => 0.2,
-        "Cherry" => 0.5,
-        "Peach" => 2
+        1 => [
+            "title_ar" => "تفاح مقشر",
+            "title_en" => "Apple, peeled",
+            "quantity" => [
+                "Piece" => "1",
+            ],
+        ],
+
+        2 => [
+            "title_en" => "Pineapple",
+            "title_ar" => "أناناس",
+            "quantity" => [
+                "Cup" => "0.75",
+            ],
+        ],
+
+        3 => [
+            "title_en" => "Honey",
+            "title_ar" => "عسل",
+            "quantity" => [
+                "Tablespoon" => "1",
+            ],
+        ]
+
     ],
 
     "vegetables" => [
-        "Tomato" => 5,
-        "Cucumber" => 3,
-        "Carrot" => 4,
-        "Bell Pepper" => 2,
-        "Spinach" => 0.5,
-        "Broccoli" => 1,
-        "Cauliflower" => 1,
-        "Zucchini" => 2,
-        "Eggplant" => 3,
-        "Potato" => 5,
-        "Sweet Potato" => 2,
-        "Lettuce" => 0.3,
-        "Green Beans" => 0.4,
-        "Asparagus" => 0.2,
-        "Cabbage" => 1
-    ]
+        1 => [
+            "title_en" => "Sugar Snap Peas",
+            "title_ar" => "بازلاء",
+            "quantity" => [
+                "Cup" => "1",
+            ],
+        ],
+
+        2 => [
+            "title_en" => "Asparagus",
+            "title_ar" => "هليون",
+            "quantity" => [
+                "Cup" => "1",
+            ],
+        ],
+
+        3 => [
+            "title_en" => "Water chestnuts",
+            "title_ar" => "جذور مائية",
+            "quantity" => [
+                "Cup" => "1",
+            ],
+        ],
+    ],
+
+    "dairies" => [
+        1 => [
+            "title_en" => "Cottage cheese",
+            "title_ar" =>  "جبن قريش",
+            "quantity" => [
+                "Grams" => "60",
+            ],
+        ],
+
+        2 => [
+            "title_en" => "	Goat’s milk",
+            "title_ar" => "حليب الماعز",
+            "quantity" => [
+                "Cup" => "1",
+            ],
+        ],
+
+        3 => [
+            "title_en" => "Sweet acidophilus milk",
+            "title_ar" => "حليب اللبن الحامض",
+            "quantity" => [
+                "Cup" => "1",
+            ],
+        ]
+    ],
+
+    "meats" => [
+        1 => [
+            "title_en" => "Beef",
+            "title_ar" => "لحم بقري",
+            "quantity" => [
+                "Ounce" => "1",
+            ],
+        ],
+
+        2 => [
+            "title_en" => "Chicken",
+            "title_ar" => "لحم دجاج",
+            "quantity" => [
+                "Ounce" => "1",
+            ],
+        ],
+
+        3 => [
+            "title_en" => "Turkey",
+            "title_ar" => "لحم ديك رومي",
+            "quantity" => [
+                "Ounce" => "1",
+            ],
+        ]
+    ],
+
+    "fats" => [
+        1 => [
+            "title_en" => "Canola oil",
+            "title_ar" => "زيت كانولا",
+            "quantity" => [
+                "Teaspoon" => "1",
+            ],
+        ],
+
+        2 => [
+            "title_en" => "Olive oil",
+            "title_ar" => "زيت زيتون",
+            "quantity" => [
+                "Teaspoon" => "1",
+            ],
+        ],
+
+        3 => [
+            "title_en" => "Safflower oil",
+            "title_ar" => "زيت القطن",
+            "quantity" => [
+                "Teaspoon" => "1",
+            ],
+        ]
+    ],
+
+    "starches" => [
+        1 => [
+            "title_en" => "Bagel",
+            "title_ar" => "خبز بيجل",
+            "quantity" => [
+                "Piece" => "1",
+            ],
+        ],
+
+        2 => [
+            "title_en" => "Bread",
+            "title_ar" => "خبز",
+            "quantity" => [
+                "Slice" => "1",
+            ],
+        ],
+
+        3 => [
+            "title_en" => "Bulgur",
+            "title_ar" => "برغل",
+            "quantity" => [
+                "Cup" => "0.25",
+            ],
+        ]
+    ],
 ];
