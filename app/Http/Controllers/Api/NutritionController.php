@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\FoodExchange;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Traits\APIHelper;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,14 @@ class NutritionController extends Controller
         $posts = Post::filters($filters)->whereHas('tag', function ($query) {
             $query->where('status', 'active');
         })->get();
+
+        $title = app()->getLocale() == "ar" ? "title_ar" : "title_en";
+
+        $tags_ids = Tag::all()->pluck($title, 'id')->mapWithKeys(function ($name, $id) {
+            return [$name => $id];
+        })->toArray();
+
+        $posts->tags_ids = $tags_ids;
 
         return $this->response($posts, __("Posts retrieved successfully"), 200);
     }
