@@ -25,6 +25,7 @@ class Tag extends Model
     protected $hidden = [
         'title_ar',
         'title_en',
+        'status',
         'created_at',
         'updated_at'
     ];

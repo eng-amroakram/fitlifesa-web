@@ -44,7 +44,7 @@ class NutritionController extends Controller
             $query->where('status', 'active');
         })->get();
 
-        $tags = Tag::where('status', 'active')->select(['id', 'title'])->get();
+        $tags = Tag::where('status', 'active')->get();
 
         $data = [
             'posts' => $posts,
