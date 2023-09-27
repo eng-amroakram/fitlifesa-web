@@ -50,8 +50,6 @@ class NutritionController extends Controller
             return [$name => $id];
         })->toArray();
 
-        $posts->tags_ids = $tags_ids;
-
-        return $this->response($posts, __("Posts retrieved successfully"), 200);
+        return $this->response([$posts, $tags_ids], __("Posts retrieved successfully"), 200);
     }
 }
