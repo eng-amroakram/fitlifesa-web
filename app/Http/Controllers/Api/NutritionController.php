@@ -44,9 +44,7 @@ class NutritionController extends Controller
             $query->where('status', 'active');
         })->get();
 
-        $title = app()->getLocale() == "ar" ? "title_ar" : "title_en";
-
-        $tags = Tag::all();
+        $tags = Tag::where('status', 'active')->select(['id', 'title'])->get();
 
         $data = [
             'posts' => $posts,
