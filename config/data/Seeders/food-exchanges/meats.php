@@ -329,5 +329,285 @@ return [
         "quantity" => [
             "Grams" => "28",
         ],
-    ]
+    ],
+    [
+        "title_en" => "Egg",
+        "title_ar" => "بيضة",
+        "quantity" => [
+            "Pieces" => "1",
+        ],
+    ],
+    [
+        "title_en" => "Beef",
+        "title_ar" => "لحم بقري",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Veal",
+        "title_ar" => "لحم العجل",
+        "quantity" => [
+            "Grams" => "28",
+            "Oz" => "1",
+        ],
+    ],
+    [
+        "title_en" => "Tuna, canned in water (drained)",
+        "title_ar" => "تونة، معلبة في الماء (مصفاة)",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Shrimp and squid (high cholesterol)",
+        "title_ar" => "جمبري وحبار (كوليسترول عالي)",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Shellfish: clams, crab, imitation shellfish, lobst...",
+        "title_ar" => "المحار: البلح البحري، السرطان، المحار المقلد، القريدس...",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Sardines, canned",
+        "title_ar" => "سردين، معلب",
+        "quantity" => [
+            "Grams" => "28",
+            "Oz" => "1",
+        ],
+    ],
+    [
+        "title_en" => "Salmon, canned",
+        "title_ar" => "سلمون، معلب",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Processed sandwich meats with 0-3 g fat per oz: ch...",
+        "title_ar" => "لحوم السندويش المصنعة مع 0-3 غرام من الدهون لكل أوقية: ش...",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Poultry, skinless:Cornish hen, chicken,domestic du...",
+        "title_ar" => "الدواجن، بدون جلد: دجاج كورنيش، دجاج، بط محلي...",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Oysters, fresh or frozen",
+        "title_ar" => "المحار، طازج أو مجمد",
+        "quantity" => [
+            "Pieces" => "6",
+        ],
+    ],
+    [
+        "title_en" => "Organ meats: heart, kidney, liver (high cholestero...",
+        "title_ar" => "لحوم الأعضاء: القلب، الكلى، الكبد (كوليسترول عالي...",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Lamb: chop, leg, roast",
+        "title_ar" => "لحم الخروف: شريحة، ساق، مشوي",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Hot dog low fat",
+        "title_ar" => "نقانق قليلة الدسم",
+        "quantity" => [
+            "Pieces" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Buffalo, Ostrich, Rabbit, Venison",
+        "title_ar" => "جاموس، نعام، أرنب، ظبي",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Salmon Fish",
+        "title_ar" => "سمك السلمون",
+        "quantity" => [
+            "Grams" => "28",
+            "Oz" => "1",
+        ],
+    ],
+    [
+        "title_en" => "Fish: All Kinds",
+        "title_ar" => "السمك: جميع الأنواع",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Egg whites",
+        "title_ar" => "بياض البيض",
+        "quantity" => [
+            "Pieces" => "2",
+            "Grams" => "70"
+        ],
+    ],
+    [
+        "title_en" => "Egg substitute, plain",
+        "title_ar" => "بديل البيض، عادي",
+        "quantity" => [
+            "Cup" => "0.5",
+        ],
+    ],
+    [
+        "title_en" => "Cheeses (0-3 g fat per oz)",
+        "title_ar" => "الجبن (0-3 غرام من الدهون لكل أوقية)",
+        "quantity" => [
+            "Grams" => "28",
+        ],
+    ],
+    [
+        "title_en" => "Bacon cooked",
+        "title_ar" => "لحم بقر مطبوخ",
+        "quantity" => [
+            "Pieces" => "1",
+            "Slices" => "1",
+            "Grams" => "16"
+        ],
+    ],
+    [
+        "title_en" => "Edamame",
+        "title_ar" => "إيدامامي",
+        "quantity" => [
+            "Cup" => "0.5",
+        ],
+    ],
+    [
+        "title_en" => "Chicken nuggets, soy-based",
+        "title_ar" => "قطع الدجاج، قائمة الصويا",
+        "quantity" => [
+            "Pieces" => "2",
+        ],
+    ],
+    [
+        "title_en" => "Beef or sausage crumbles, soy-based",
+        "title_ar" => "لحم البقر أو السجق، قائمة الصويا",
+        "quantity" => [
+            "Grams" => "56",
+        ],
+    ],
+    [
+        "title_en" => "Beans cooked: black, garbanzo, kidney, lima, navy,...",
+        "title_ar" => "الفاصوليا المطبوخة: السوداء، الحمص، الكلى، ليما، البحرية،...",
+        "quantity" => [
+            "Cup" => "0.5",
+        ],
+    ],
+    [
+        "title_en" => "Baked beans",
+        "title_ar" => "الفاصوليا المخبوزة",
+        "quantity" => [
+            "Cup" => "0.33",
+        ],
+    ],
+    [
+        "title_en" => "Bacon strips, soy-based",
+        "title_ar" => "شرائح اللحم المقدد، قائمة الصويا",
+        "quantity" => [
+            "Pieces" => "3",
+        ],
+    ],
+    [
+        "title_en" => "Meatless burger, soy-based",
+        "title_ar" => "برغر خالي من اللحوم، قائمة الصويا",
+        "quantity" => [
+            "Oz" => "3",
+        ],
+    ],
+    [
+        "title_en" => "Lentils, brown, green, or yellow",
+        "title_ar" => "عدس بني، أخضر، أو أصفر",
+        "quantity" => [
+            "Cup" => "0.5",
+        ],
+    ],
+    [
+        "title_en" => "Hummus",
+        "title_ar" => "حمص",
+        "quantity" => [
+            "Cup" => "0.33",
+        ],
+    ],
+    [
+        "title_en" => "Hot dog, soy-based",
+        "title_ar" => "نقانق، قائمة الصويا",
+        "quantity" => [
+            "Oz" => "1",
+        ],
+    ],
+    [
+        "title_en" => "Falafel (spiced chickpea and wheat patties)",
+        "title_ar" => "فلافل (حمص متبل ورقائق القمح)",
+        "quantity" => [
+            "Patties" => "3",
+        ],
+    ],
+
+    // Tofu	Meats	Oz	4
+    // Tempeh	Meats	cup	0.25
+    // Soy nuts, unsalted	Meats	Oz	0.75
+    // Peas cooked: black-eyed and split peas	Meats	cup	0.5
+    // almond butter, cashew butter, peanut butter, soy n...	Meats	Tablespoon	1
+    [
+        "title_en" => "Tofu",
+        "title_ar" => "توفو",
+        "quantity" => [
+            "Oz" => "4",
+        ],
+    ],
+    [
+        "title_en" => "Tempeh",
+        "title_ar" => "تمبيه",
+        "quantity" => [
+            "Cup" => "0.25",
+        ],
+    ],
+    [
+        "title_en" => "Soy nuts, unsalted",
+        "title_ar" => "الفول السوداني، غير مملح",
+        "quantity" => [
+            "Oz" => "0.75",
+        ],
+    ],
+    [
+        "title_en" => "Peas cooked: black-eyed and split peas",
+        "title_ar" => "البازلاء المطبوخة: العين السوداء والبازلاء المقسمة",
+        "quantity" => [
+            "Cup" => "0.5",
+        ],
+    ],
+    [
+        "title_en" => "almond butter, cashew butter, peanut butter, soy n...",
+        "title_ar" => "زبدة اللوز، زبدة الكاجو، زبدة الفول السوداني، الصويا...",
+        "quantity" => [
+            "Tablespoon" => "1",
+        ],
+    ],
+
 ];
+
+
+
+
+
+
+
+
