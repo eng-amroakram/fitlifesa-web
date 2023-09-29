@@ -57,7 +57,7 @@ class RecipesService extends Controller
     public function selects()
     {
         return [
-            "food_exchange_names" => [],
+            // "food_exchange_names" => [],
             "status" => [
                 __("Active") => "active",
                 __("Inactive") => "inactive",
