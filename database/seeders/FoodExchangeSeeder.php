@@ -13,7 +13,7 @@ class FoodExchangeSeeder extends Seeder
      */
     public function run(): void
     {
-        $fruits = config('data.Seeders.food.fruits');
+        $fruits = config('data.Seeders.food-exchanges.fruits');
 
         foreach ($fruits as $fruit) {
             FoodExchange::create([
@@ -26,7 +26,7 @@ class FoodExchangeSeeder extends Seeder
             ]);
         }
 
-        $vegetables = config('data.Seeders.food.vegetables');
+        $vegetables = config('data.Seeders.food-exchanges.vegetables');
 
         foreach ($vegetables as $vegetable) {
             FoodExchange::create([
@@ -40,7 +40,7 @@ class FoodExchangeSeeder extends Seeder
             ]);
         }
 
-        $dairy = config('data.Seeders.food.dairies');
+        $dairy = config('data.Seeders.food-exchanges.dairies');
 
         foreach ($dairy as $dair) {
             FoodExchange::create([
@@ -54,7 +54,7 @@ class FoodExchangeSeeder extends Seeder
             ]);
         }
 
-        $meat = config('data.Seeders.food.meats');
+        $meat = config('data.Seeders.food-exchanges.meats');
 
         foreach ($meat as $mea) {
             FoodExchange::create([
@@ -68,7 +68,7 @@ class FoodExchangeSeeder extends Seeder
             ]);
         }
 
-        $starch = config('data.Seeders.food.starches');
+        $starch = config('data.Seeders.food-exchanges.starches');
 
         foreach ($starch as $sta) {
             FoodExchange::create([
@@ -82,7 +82,7 @@ class FoodExchangeSeeder extends Seeder
             ]);
         }
 
-        $fat = config('data.Seeders.food.fats');
+        $fat = config('data.Seeders.food-exchanges.fats');
 
         foreach ($fat as $fa) {
             FoodExchange::create([
