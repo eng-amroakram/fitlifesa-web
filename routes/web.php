@@ -88,12 +88,5 @@ Route::prefix('panel/')->as('panel.')->middleware(['web', 'auth'])->group(
 );
 
 Route::get('testing', function () {
-    $filters = [
-        'search' => "",
-        'type' => "fruit",
-    ];
-
-    $food_exchanges = FoodExchange::filters($filters)->get();
-
-    dd($food_exchanges);
+    return view("test");
 });

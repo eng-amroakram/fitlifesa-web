@@ -21,7 +21,7 @@ class Recipe extends Model
         "title_ar",
         "title_en",
         "description_ar",
-        "description_ar",
+        "description_en",
         "other_info_ar",
         "other_info_en",
         "status"
@@ -29,7 +29,7 @@ class Recipe extends Model
 
     public function scopeData($query)
     {
-        return $query->select(["id", "user_id", "food_exchanges", "image", "title_ar", "title_en", "description_ar", "description_ar", "other_info_ar", "other_info_en", "status", "created_at", "updated_at",]);
+        return $query->select(["id", "user_id", "food_exchanges", "image", "title_ar", "title_en", "description_ar", "description_en", "other_info_ar", "other_info_en", "status", "created_at", "updated_at",]);
     }
 
     public function scopeFilters(Builder $builder, array $filters = [])

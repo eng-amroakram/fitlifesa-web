@@ -28,17 +28,19 @@ class SettingsSeeder extends Seeder
             Storage::disk('public')->put('images/settings/Intro.mp4', $file);
         }
 
+        $settings = config('data.Seeders.settings');
+
         $data = [
             'email' => "eng-amroakram@gmail.com",
             'mobile' => "+966599916672",
             'site_url' => "https://www.fitlifesa.co",
             'video' => "intro.mp4",
-            'privacy_policy_en' => "https://www.fitlifesa.co",
-            'privacy_policy_ar' => "https://www.fitlifesa.co",
-            'terms_service_en' => "https://www.fitlifesa.co",
-            'terms_service_ar' => "https://www.fitlifesa.co",
-            'about_us_en' => "https://www.fitlifesa.co",
-            'about_us_ar' => "https://www.fitlifesa.co",
+            'privacy_policy_en' => $settings['privacy_policy_en'],
+            'privacy_policy_ar' => $settings['privacy_policy_ar'],
+            'terms_service_en' => $settings['terms_service_en'],
+            'terms_service_ar' => $settings['terms_service_ar'],
+            'about_us_en' => $settings['about_us_en'],
+            'about_us_ar' => $settings['about_us_ar'],
         ];
 
         Settings::create($data);

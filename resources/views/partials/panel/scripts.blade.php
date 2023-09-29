@@ -47,3 +47,4 @@
 
 @stack('creator')
 @stack('updater')
+@stack('editor-render')

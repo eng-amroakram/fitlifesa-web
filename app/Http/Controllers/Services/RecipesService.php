@@ -42,6 +42,7 @@ class RecipesService extends Controller
             __("ID"),
             __("Image"),
             __("Title"),
+            __("Description"),
             __("Food Exchange"),
             __("Status"),
             __("Actions")
@@ -81,6 +82,8 @@ class RecipesService extends Controller
 
         return [
             ["title" => __("Recipe Info"), "id" => "recipe-info-$prefix_id", "status" => "active", "icon" => "fas fa-circle-info"],
+            ["title" => __("Ingredients"), "id" => "ingredients-$prefix_id", "status" => "", "icon" => "fas fa-utensils",],
+            ["title" => __("Other Info"), "id" => "other-info-$prefix_id", "status" => "", "icon" => "fas fa-info-circle",]
         ];
     }
 
@@ -95,11 +98,15 @@ class RecipesService extends Controller
                 input("text", "title_ar", "title_ar_input_id_$prefix_id", "fas fa-dumbbell", "rtl", "50", "form-control inputText$type", __("Arabic Title"), true, __("Arabic Title"), "text-danger reset-validation title_ar-validation"),
                 select("select", "food_exchanges", "food_exchanges_select_id_$prefix_id", "fab fa-deviantart", "", "select inputSelect$type", __("Food Exchange"), true, food_exchanges(true), "multiple", true, __("Food Exchange"), "text-danger reset-validation food_exchanges-validation"),
                 input("image", "image", "image_input_id_$prefix_id", "fas fa-cloud-arrow-up", "ltr", "50", "form-control inputText$type", __("Image"), true, __("Image"), "text-danger reset-validation image-validation", false, "image/*"),
-                input("textarea", "description_en", "description_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Description"), true, __("English Description"), "text-danger description_en-validation fw-bold ms-5 reset-validation"),
-                input("textarea", "description_ar", "description_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Description"), true, __("Arabic Description"), "text-danger description_ar-validation fw-bold ms-5 reset-validation"),
-                input("textarea", "other_info_en", "other_info_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Other Info"), true, __("English Other Info"), "text-danger other_info_en-validation fw-bold ms-5 reset-validation"),
-                input("textarea", "other_info_ar", "other_info_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Other Info"), true, __("Arabic Other Info"), "text-danger other_info_ar-validation fw-bold ms-5 reset-validation"),
             ],
+            [
+                input("editor", "description_en", "description_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Description"), true, __("English Description"), "text-danger description_en-validation fw-bold ms-5 reset-validation"),
+                input("editor", "description_ar", "description_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Description"), true, __("Arabic Description"), "text-danger description_ar-validation fw-bold ms-5 reset-validation"),
+            ],
+            [
+                input("editor", "other_info_en", "other_info_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Other Info"), true, __("English Other Info"), "text-danger other_info_en-validation fw-bold ms-5 reset-validation"),
+                input("editor", "other_info_ar", "other_info_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Other Info"), true, __("Arabic Other Info"), "text-danger other_info_ar-validation fw-bold ms-5 reset-validation"),
+            ]
         ];
 
         $contents = [
@@ -113,6 +120,26 @@ class RecipesService extends Controller
                 "inputs" => [],
                 "checkboxes" => []
             ],
+            [
+                "id" => "ingredients-$prefix_id",
+                "title" => __("Ingredients"),
+                "prev" => "",
+                "next" => "",
+                "type" => "text",
+                "status" => "hide",
+                "inputs" => [],
+                "checkboxes" => []
+            ],
+            [
+                "id" => "other-info-$prefix_id",
+                "title" => __("Other Info"),
+                "prev" => "",
+                "next" => "",
+                "type" => "text",
+                "status" => "hide",
+                "inputs" => [],
+                "checkboxes" => []
+            ]
         ];
 
         $x = 0;

@@ -78,6 +78,7 @@ class PostsService extends Controller
 
     public function create()
     {
+
         return [
             "lable" => __("Create"),
             "check" => true,
@@ -87,16 +88,19 @@ class PostsService extends Controller
         ];
     }
 
-    public function tabs()
+    public function tabs($type)
     {
+        $prefix_id = $type == "Updater" ? "updater" : "creator";
+
         return [
-            ["title" => __("Post Info"), "id" => "post-info", "status" => "active", "icon" => "fas fa-circle-info"],
+            ["title" => __("Post Info"), "id" => "post-info-$prefix_id", "status" => "active", "icon" => "fas fa-circle-info"],
+            ["title" => __("Content"), "id" => "content-$prefix_id", "status" => "", "icon" => "fas fa-info-circle",]
         ];
     }
 
     public function contents($type)
     {
-        $prefix_id = $type == "Updater" ? "_updater" : "_creator";
+        $prefix_id = $type == "Updater" ? "updater" : "creator";
         $dir = app()->getLocale() == "ar" ? "rtl" : "ltr";
 
         $sections = [
@@ -118,19 +122,32 @@ class PostsService extends Controller
                 select("select", "section", "section_select_id$prefix_id", "fas fa-toggle-on", "", "select inputSelect$type", __("section"), false, $sections, "", true, __("Section"), "text-danger reset-validation section-validation"),
                 select("select", "featured", "featured_select_id$prefix_id", "fas fa-toggle-on", "", "select inputSelect$type", __("Featured"), false, $features, "", true, __("Featured"), "text-danger reset-validation featured-validation"),
                 input("image", "image", "image_input_id$prefix_id", "fas fa-cloud-arrow-up", "ltr", "50", "form-control inputText$type", __("Image"), true, __("Image"), "text-danger reset-validation image-validation", false, "image/*"),
+
+            ],
+            [
                 input("editor", "description_ar", "description_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Description"), true, __("Arabic Description"), "text-danger description_ar-validation fw-bold ms-5 reset-validation"),
                 input("editor", "description_en", "description_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Description"), true, __("English Description"), "text-danger description_en-validation fw-bold ms-5 reset-validation"),
-            ],
+            ]
         ];
 
         $contents = [
             [
-                "id" => "post-info",
+                "id" => "post-info-$prefix_id",
                 "title" => __("Post Info"),
                 "prev" => "",
                 "next" => "",
                 "section" => "text",
                 "status" => "show active",
+                "inputs" => [],
+                "checkboxes" => []
+            ],
+            [
+                "id" => "content-$prefix_id",
+                "title" => __("Content"),
+                "prev" => "",
+                "next" => "",
+                "section" => "text",
+                "status" => "hide",
                 "inputs" => [],
                 "checkboxes" => []
             ]

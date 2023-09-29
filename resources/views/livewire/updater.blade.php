@@ -104,6 +104,7 @@
                     if ($data_updater.hasOwnProperty(key)) {
                         if (key != "image" && key != "video") {
                             @this.set(key, $data_updater[key]);
+                            console.log(key + " -> " + $data_updater[key]);
                         }
                     }
                 }
@@ -185,24 +186,40 @@
             });
 
             Livewire.on('setDescriptionAr', function(id, data) {
-                var trixEditor_description_ar = $("#" + id);
-                trixEditor_description_ar.attr('value', data);
+                const editor = document.querySelector('trix-editor[input="' + id + '"]');
+                const hiddenInput = document.querySelector('#' + id);
+                editor.editor.loadHTML(data);
+                hiddenInput.value = data;
+
+                console.log(id + " -> " + data);
             });
 
-            Livewire.on('setDescriptionEn', function(data) {
-                var trixEditor_description_en = document.getElementById("description_en");
-                @this.set('description_en', trixEditor_description_en.getAttribute('value'));
+            var trixEditor_description_ar_updater = document.getElementById("description_ar_input_id_updater");
+            var trixEditor_description_en_updater = document.getElementById("description_en_input_id_updater");
+            var trixEditor_other_info_ar_updater = document.getElementById("other_info_ar_input_id_updater");
+            var trixEditor_other_info_en_updater = document.getElementById("other_info_en_input_id_updater");
+
+
+            addEventListener("trix-blur", function(event) {
+
+                if (trixEditor_description_ar_updater && trixEditor_description_en_updater) {
+                    @this.set('description_ar', trixEditor_description_ar_updater.getAttribute('value'));
+                    @this.set('description_en', trixEditor_description_en_updater.getAttribute('value'));
+                    $data_updater["description_en"] = trixEditor_description_en_updater.getAttribute(
+                        'value');
+                    $data_updater["description_ar"] = trixEditor_description_ar_updater.getAttribute(
+                        'value');
+                }
+
+                if (trixEditor_other_info_ar_updater && trixEditor_other_info_en_updater) {
+                    @this.set('other_info_ar', trixEditor_other_info_ar_updater.getAttribute('value'));
+                    @this.set('other_info_en', trixEditor_other_info_en_updater.getAttribute('value'));
+                    $data_updater["other_info_ar"] = trixEditor_other_info_ar_updater.getAttribute('value');
+                    $data_updater["other_info_en"] = trixEditor_other_info_en_updater.getAttribute('value');
+                }
+
             });
-        });
-    </script>
 
-    <script>
-        var trixEditor_description_ar = document.getElementById("description_ar");
-        var trixEditor_description_en = document.getElementById("description_en");
-
-        addEventListener("trix-blur", function(event) {
-            @this.set('description_ar', trixEditor_description_ar.getAttribute('value'));
-            @this.set('description_en', trixEditor_description_en.getAttribute('value'));
         });
     </script>
 @endpush

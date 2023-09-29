@@ -236,8 +236,9 @@
             <label class="form-label select-label mb-1"><strong>{{ $input['lable'] }}</strong></label>
         @endif
         <div class="col-md-12 form-group">
-            <input id="{{ $input['name'] }}" dir="{{ $input['dir'] }}" type="hidden" name="content">
-            <trix-editor input="{{ $input['name'] }}"></trix-editor>
+            <input id="{{ $input['id'] }}" dir="{{ $input['dir'] }}" wire:model.defer="{{ $input['name'] }}"
+                type="hidden" name="content">
+            <trix-editor input="{{ $input['id'] }}"></trix-editor>
         </div>
         <small class="{{ $input['validation'] }}"></small>
     </div>

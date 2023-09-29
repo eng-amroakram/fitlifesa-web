@@ -97,6 +97,7 @@ class ExercisesService extends Controller
         return [
             ["title" => __("Exercise Info"), "id" => "exercise-info-$prefix_id", "status" => "active", "icon" => "fas fa-circle-info"],
             ["title" => __("Exercise Description"), "id" => "exercise-description-$prefix_id", "status" => "", "icon" => "fas fa-align-justify"],
+            ["title" => __("Exercise Tips"), "id" => "exercise-tips-$prefix_id", "status" => "", "icon" => "fas fa-align-justify"],
             ["title" => __("Exercise Media"), "id" => "exercise-media-$prefix_id", "status" => "", "icon" => "fas fa-photo-film"],
         ];
     }
@@ -137,6 +138,8 @@ class ExercisesService extends Controller
             [
                 input("textarea", "description_ar", "description_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Description"), true, __("Arabic Description"), "text-danger description_ar-validation fw-bold ms-5 reset-validation"),
                 input("textarea", "description_en", "description_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Description"), true, __("English Description"), "text-danger description_en-validation fw-bold ms-5 reset-validation"),
+            ],
+            [
                 input("textarea", "tips_ar", "tips_ar_input_id_$prefix_id", "fas fa-pen", "rtl", "500", "form-control inputText$type", __("Arabic Tips"), true, __("Arabic Tips"), "text-danger tips_ar-validation fw-bold ms-5 reset-validation"),
                 input("textarea", "tips_en", "tips_en_input_id_$prefix_id", "fas fa-pen", "ltr", "500", "form-control inputText$type", __("English Tips"), true, __("English Tips"), "text-danger tips_en-validation fw-bold ms-5 reset-validation"),
             ],
@@ -166,6 +169,17 @@ class ExercisesService extends Controller
                 "status" => "",
                 "inputs" => [],
                 "checkboxes" => []
+            ],
+            [
+                "id" => "exercise-tips-$prefix_id",
+                "title" => __("Exercise Tips"),
+                "prev" => "",
+                "next" => "",
+                "type" => "text",
+                "status" => "",
+                "inputs" => [],
+                "checkboxes" => []
+
             ],
             [
                 "id" => "exercise-media-$prefix_id",

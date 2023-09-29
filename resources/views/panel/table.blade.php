@@ -21,6 +21,6 @@
         @livewire('table', ['service' => $service])
         @livewire('creator', ['service' => $service])
         @livewire('updater', ['service' => $service])
-
+        @livewire('editor-render', ['service' => $service])
     </section>
 @endsection

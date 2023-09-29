@@ -1,6 +1,10 @@
 <tr>
 
     @foreach ($rows as $row => $type)
+        @if ($type == 'editor-render')
+            <x-table.extensions.editor-render :model="$model[$row]" :id="$model['id']"></x-table.extensions.editor-render>
+        @endif
+
         @if ($type == 'property')
             <td>{{ $model["$row"] }}</td>
         @endif

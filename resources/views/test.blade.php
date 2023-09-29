@@ -6,30 +6,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width= device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    {{-- @include('partials.panel.styles') --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
 
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-    <link href="{{ asset('assets/css/wysiwyg.css') }}" rel="stylesheet" />
-    <script src="{{ asset('assets/js/wysiwyg.js') }}"></script>
 </head>
 
 <body>
+    <input id="x" type="hidden" name="content">
+    <trix-editor input="x"></trix-editor>
 
+    <button id="makeReadOnly">Make Read-Only</button>
 
-    <textarea id="privacy_policy_en">
-    </textarea>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const editor = document.querySelector('trix-editor[input="x"]');
 
+            const makeReadOnlyButton = document.querySelector('#makeReadOnly');
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#privacy_policy_en').wysiwyg({});
+            // Event listener for the "Make Read-Only" button
+            makeReadOnlyButton.addEventListener('click', function() {
+                // const trixEditor = editor.editor;
+                // trixEditor.setReadOnly(true); // Set to read-only
+
+                // // Disable the button after making it read-only
+                // makeReadOnlyButton.disabled = true;
+                editor.contentEditable = false
+
+            });
         });
     </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
 </body>
 
 </html>

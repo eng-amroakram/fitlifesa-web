@@ -152,17 +152,25 @@
                 $data = [];
             });
 
-        });
-    </script>
+            var trixEditor_description_ar_creator = document.getElementById("description_ar_input_id_creator");
+            var trixEditor_description_en_creator = document.getElementById("description_en_input_id_creator");
+            var trixEditor_other_info_ar_creator = document.getElementById("other_info_ar_input_id_creator");
+            var trixEditor_other_info_en_creator = document.getElementById("other_info_en_input_id_creator");
 
 
-    <script>
-        var trixEditor_description_ar = document.getElementById("description_ar");
-        var trixEditor_description_en = document.getElementById("description_en");
+            addEventListener("trix-blur", function(event) {
+                if (trixEditor_description_ar_creator && trixEditor_description_en_creator) {
+                    @this.set('description_ar', trixEditor_description_ar_creator.getAttribute('value'));
+                    @this.set('description_en', trixEditor_description_en_creator.getAttribute('value'));
+                }
 
-        addEventListener("trix-blur", function(event) {
-            @this.set('description_ar', trixEditor_description_ar.getAttribute('value'));
-            @this.set('description_en', trixEditor_description_en.getAttribute('value'));
+                if (trixEditor_other_info_ar_creator && trixEditor_other_info_en_creator) {
+                    @this.set('other_info_ar', trixEditor_other_info_ar_creator.getAttribute('value'));
+                    @this.set('other_info_en', trixEditor_other_info_en_creator.getAttribute('value'));
+                }
+
+            });
+
         });
     </script>
 @endpush

@@ -54,6 +54,11 @@ class Table extends Component
         $this->emit("updater", $this->table, $id);
     }
 
+    public function editorRender($id)
+    {
+        $this->emit("setContent", $this->table, $id);
+    }
+
     public function show($id)
     {
         return $this->setService()->show($id);
