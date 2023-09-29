@@ -671,5 +671,12 @@ return [
         "quantity" => [
             "Grams" => "28"
         ],
+    ],
+    [
+        "title_en" => "Crackers Whole-wheat regular",
+        "title_ar" => "كراكرز قمح كامل",
+        "quantity" => [
+            "Pieces" => "2"
+        ],
     ]
 ];
