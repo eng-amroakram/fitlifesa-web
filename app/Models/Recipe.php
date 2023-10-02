@@ -32,7 +32,6 @@ class Recipe extends Model
         'description',
         'other_info',
         'image_table',
-        'food_exchange_names',
         'food_exchange_models',
     ];
 
