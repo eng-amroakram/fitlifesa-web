@@ -22,11 +22,12 @@ class MealPlan extends Model
     ];
 
     protected $appends = [
-        'meals_names',
+        'meals_models',
         'goal_name',
         'user_name',
         'user_type',
         'title',
+
     ];
 
     protected $casts = [
@@ -94,6 +95,11 @@ class MealPlan extends Model
         return mealsNames($this->meals);
     }
 
+    public function getMealsModelsAttribute()
+    {
+        return Meal::whereIn('id', $this->meals)->get();
+    }
+
     public function getGoalNameAttribute()
     {
         return $this->goal ? $this->goal->title : "None";
@@ -113,6 +119,7 @@ class MealPlan extends Model
     {
         return app()->getLocale() == 'ar' ? $this->title_ar : $this->title_en;
     }
+
 
     public function scopeGetRules(Builder $builder, $id = "")
     {
