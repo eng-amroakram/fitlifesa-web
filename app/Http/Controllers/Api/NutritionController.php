@@ -68,7 +68,13 @@ class NutritionController extends Controller
 
     public function suggestedMealPlan()
     {
-        $meal_plan = MealPlan::all()->random(1)->first();
+        $meal_plan = MealPlan::all()->whereHas(
+            "user",
+            function ($query) {
+                $query->where('type', "admin");
+            }
+        )->random(1);
+
 
         return $this->response($meal_plan, __("Meal plan retrieved successfully"), 200);
     }

@@ -21,6 +21,27 @@ class MealPlan extends Model
         'status',
     ];
 
+    protected $appends = [
+        'meals_names',
+        'goal_name',
+        'user_name',
+        'user_type',
+        'title',
+    ];
+
+    protected $casts = [
+        'meals' => 'array',
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'user_id',
+        'title_ar',
+        'title_en',
+        'status',
+    ];
+
     public function scopeData($query)
     {
         return $query->select(['id', 'user_id', 'goal_id', 'meals', 'title_ar', 'title_en', 'status', 'created_at', 'updated_at']);
@@ -81,6 +102,11 @@ class MealPlan extends Model
     public function getUserNameAttribute()
     {
         return $this->user ? $this->user->name : "None";
+    }
+
+    public function getUserTypeAttribute()
+    {
+        return $this->user ? $this->user->type : "None";
     }
 
     public function getTitleAttribute()
