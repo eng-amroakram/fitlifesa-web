@@ -25,8 +25,6 @@ class Meal extends Model
 
     protected $appends = [
         'title',
-        'recipes_names',
-        'meal_type_name',
         'recipes_models',
     ];
 
