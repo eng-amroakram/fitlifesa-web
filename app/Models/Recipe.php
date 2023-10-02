@@ -27,6 +27,31 @@ class Recipe extends Model
         "status"
     ];
 
+    protected $appends = [
+        'title',
+        'description',
+        'other_info',
+        'image_table',
+        'food_exchange_names',
+    ];
+
+    protected $casts = [
+        "food_exchanges" => "array",
+    ];
+
+    protected $hidden = [
+        "created_at",
+        "updated_at",
+        "user_id",
+        "title_ar",
+        "title_en",
+        "description_ar",
+        "description_en",
+        "other_info_ar",
+        "other_info_en",
+        "status",
+    ];
+
     public function scopeData($query)
     {
         return $query->select(["id", "user_id", "food_exchanges", "image", "title_ar", "title_en", "description_ar", "description_en", "other_info_ar", "other_info_en", "status", "created_at", "updated_at",]);
@@ -82,6 +107,11 @@ class Recipe extends Model
     public function setFoodExchangesAttribute($value)
     {
         $this->attributes['food_exchanges'] = json_encode($value);
+    }
+
+    public function getFoodExchangeModelsAttribute()
+    {
+        return FoodExchange::whereIn("id", $this->food_exchanges ?? [])->get();
     }
 
     public function getFoodExchangeNamesAttribute()
