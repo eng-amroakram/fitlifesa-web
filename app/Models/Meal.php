@@ -27,6 +27,7 @@ class Meal extends Model
         'title',
         'recipes_names',
         'meal_type_name',
+        'recipes_models',
     ];
 
     public function scopeData($query)
