@@ -7,6 +7,7 @@ use App\Http\Controllers\Panel\HomeController;
 use App\Http\Controllers\Panel\NutritionController;
 use App\Http\Controllers\Panel\SettingsController;
 use App\Models\FoodExchange;
+use App\Models\MealPlan;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -88,5 +89,12 @@ Route::prefix('panel/')->as('panel.')->middleware(['web', 'auth'])->group(
 );
 
 Route::get('testing', function () {
-    return view("test");
+    $meal_plan = MealPlan::whereHas(
+        "user",
+        function ($query) {
+            $query->where('type', "admin");
+        }
+    )->get()->random(1);
+
+    dd($meal_plan->first());
 });
