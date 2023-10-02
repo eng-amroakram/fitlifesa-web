@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\FoodExchange;
+use App\Models\MealPlan;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Traits\APIHelper;
@@ -63,5 +64,12 @@ class NutritionController extends Controller
         }
 
         return $this->response($post, __("Post retrieved successfully"), 200);
+    }
+
+    public function suggestedMealPlan()
+    {
+        $meal_plan = MealPlan::all()->random(1)->first();
+
+        return $this->response($meal_plan, __("Meal plan retrieved successfully"), 200);
     }
 }

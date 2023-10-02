@@ -62,6 +62,7 @@ Route::prefix('v2/')->as('v2.')->middleware(['api'])->group(function () {
             Route::get("food-exchanges/{type?}", "foodExchanges");
             Route::get("posts/{section}/{tag?}", "posts");
             Route::get("post/{id}", "post");
+            Route::get("suggested-meal-plan", "suggestedMealPlan");
         }
     );
 
