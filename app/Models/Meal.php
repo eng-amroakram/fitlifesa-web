@@ -30,6 +30,15 @@ class Meal extends Model
         'recipes_models',
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'user_id',
+        'title_ar',
+        'title_en',
+        'status',
+    ];
+
     public function scopeData($query)
     {
         return $query->select(['id', 'user_id', 'recipes', 'title_ar', 'title_en', 'status', 'type', 'created_at', 'updated_at']);
