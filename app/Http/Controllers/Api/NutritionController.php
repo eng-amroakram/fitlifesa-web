@@ -68,7 +68,7 @@ class NutritionController extends Controller
 
     public function suggestedMealPlan()
     {
-        $meal_plan = MealPlan::all()->whereHas(
+        $meal_plan = MealPlan::whereHas(
             "user",
             function ($query) {
                 $query->where('type', "admin");
