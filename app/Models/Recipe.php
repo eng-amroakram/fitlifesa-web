@@ -33,6 +33,7 @@ class Recipe extends Model
         'other_info',
         'image_table',
         'food_exchange_names',
+        'food_exchange_models',
     ];
 
     protected $casts = [
@@ -50,6 +51,7 @@ class Recipe extends Model
         "other_info_ar",
         "other_info_en",
         "status",
+        "food_exchanges",
     ];
 
     public function scopeData($query)

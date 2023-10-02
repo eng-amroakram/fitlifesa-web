@@ -37,6 +37,7 @@ class Meal extends Model
         'title_ar',
         'title_en',
         'status',
+        'recipes',
     ];
 
     public function scopeData($query)
