@@ -26,7 +26,7 @@ class FoodExchange extends Model
 
     protected $appends = ['title'];
 
-    protected $hidden = ['title_ar', 'title_en', 'created_at', 'updated_at'];
+    protected $hidden = ['title_ar', 'title_en', 'created_at', 'updated_at', 'image'];
 
     public function scopeData($query)
     {

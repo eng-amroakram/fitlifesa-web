@@ -52,6 +52,7 @@ class Recipe extends Model
         "other_info_en",
         "status",
         "food_exchanges",
+        "image",
     ];
 
     public function scopeData($query)
