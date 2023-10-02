@@ -21,6 +21,20 @@ class Goal extends Model
         "status",
     ];
 
+    protected $appends = [
+        'title',
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'title_ar',
+        'title_en',
+        'status',
+    ];
+
+
+
     public function scopeData($query)
     {
         return $query->select(['id', 'title_ar', 'title_en', 'type', 'status', 'created_at', 'updated_at']);

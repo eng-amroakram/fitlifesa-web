@@ -23,6 +23,12 @@ class Meal extends Model
         'type'
     ];
 
+    protected $appends = [
+        'title',
+        'recipes_names',
+        'meal_type_name',
+    ];
+
     public function scopeData($query)
     {
         return $query->select(['id', 'user_id', 'recipes', 'title_ar', 'title_en', 'status', 'type', 'created_at', 'updated_at']);
@@ -48,7 +54,6 @@ class Meal extends Model
         $builder->when($filters['search'] == '' && $filters['type'] != null, function ($query) use ($filters) {
             $query->whereIn('type', $filters['type']);
         });
-
     }
 
     public function getMealTypeNameAttribute()
@@ -69,6 +74,11 @@ class Meal extends Model
     public function setRecipesAttribute($value)
     {
         $this->attributes['recipes'] = json_encode($value);
+    }
+
+    public function getRecipesModelsAttribute()
+    {
+        return Recipe::whereIn('id', $this->recipes)->get();
     }
 
     public function getRecipesNamesAttribute()
