@@ -42,6 +42,7 @@ class MealPlan extends Model
         'title_en',
         'status',
         'meals',
+        'user'
     ];
 
     public function scopeData($query)
