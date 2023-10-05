@@ -44,6 +44,7 @@ trait ModelHelper
     public function scopeDeleteImage(Builder $builder, $id)
     {
         $model = $builder->find($id);
+
         if ($model->image) {
             if (Storage::disk('public')->exists($model->image)) {
                 Storage::disk('public')->delete($model->image);

@@ -154,6 +154,16 @@ class FoodExchange extends Model
         $image = $data['image'];
         $model = $builder->find($id);
 
+
+        if (gettype($image) == "object") {
+            $builder->deleteImage($id);
+            $data['image'] = $builder->storeFile($image);
+            $this->deleteLivewireTempImage();
+        } else {
+            unset($data['image']);
+            unset($data['status']);
+        }
+
         $inputs_units_names = [];
         $measurement_units = [];
 
@@ -171,15 +181,6 @@ class FoodExchange extends Model
         }
 
         $data['measurement_units'] = $measurement_units;
-
-        if (gettype($image) == "object") {
-            $builder->deleteImage($id);
-            $data['image'] = $builder->storeFile($image);
-            $this->deleteLivewireTempImage();
-        } else {
-            unset($data['image']);
-            unset($data['status']);
-        }
 
         $result =  $model->update($data);
 
